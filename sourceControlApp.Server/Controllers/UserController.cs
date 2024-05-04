@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace sourceControlApp.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/register")]
     public class UserController : ControllerBase
     {
 
@@ -14,12 +14,12 @@ namespace sourceControlApp.Server.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "Register")]
-        public IEnumerable<UserController> Get()
+        [HttpPost(Name = "Register")]
+        public IActionResult Post()
         {
 
-            return null;
-            
+            return Ok("This endpoint works");
+
         }
     }
 }
