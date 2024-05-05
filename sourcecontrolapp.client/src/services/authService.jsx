@@ -37,7 +37,7 @@ async function register(firstName, lastName, email, password) {
 
     })
 
-    let jsonResult = await res.text();
+    let jsonResult = await res.json();
 
     if (res.ok) {
 
