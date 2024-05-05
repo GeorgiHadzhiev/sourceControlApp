@@ -19,11 +19,12 @@ function Register() {
         let password = formData.get('password');
         //let rePassword = formData.get('repeatPassword');
 
-        authService.register(firstName.toUpperCase(), lastName.toUpperCase(), email, password)
+        authService.register(firstName, lastName, email, password)
             .then(res => {
 
-                login(res);
-                navigate('/catalog');
+                console.log(res)
+                //login(res);
+                navigate('/');
 
             })
             .catch(err => {

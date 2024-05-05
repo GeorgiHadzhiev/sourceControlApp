@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Cors.Infrastructure;
+
 namespace sourceControlApp.Server
 {
     public class Program
@@ -14,6 +16,12 @@ namespace sourceControlApp.Server
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            app.UseCors(builder => builder
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .SetIsOriginAllowed((host) => true)
+                .AllowCredentials());
 
             app.UseDefaultFiles();
             app.UseStaticFiles();

@@ -6,6 +6,7 @@ import {AuthProvder} from './contexts/AuthContext.jsx'
 import Home from './components/Home/Home.jsx';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import Test from './components/Test/Test';
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home/>} />
                 <Route path="/login" element={<Login/>} />
-                <Route path="/register" element={<Register/>} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/test" element={<Test />} />
             </Routes>
 
         </AuthProvder>

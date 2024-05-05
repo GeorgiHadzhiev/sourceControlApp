@@ -1,4 +1,4 @@
-const baseUrl = 'https://localhost:5173'
+const baseUrl = 'https://localhost:7035/User'
 async function login(email, password) {
 
     let res = await fetch(`${baseUrl}/login`, {
@@ -37,7 +37,7 @@ async function register(firstName, lastName, email, password) {
 
     })
 
-    let jsonResult = await res.json();
+    let jsonResult = await res.text();
 
     if (res.ok) {
 

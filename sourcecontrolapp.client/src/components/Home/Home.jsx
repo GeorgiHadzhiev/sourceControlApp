@@ -17,6 +17,11 @@ function Home() {
                       Register
                     </Button>
                 </Link>
+                <Link to="/test">
+                    <Button variant="secondary" size="lg">
+                        test endpoint
+                    </Button>
+                </Link>
           </div>    
         </div>
         
