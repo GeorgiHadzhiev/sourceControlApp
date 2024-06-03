@@ -15,7 +15,7 @@ namespace sourceControlApp.Server.Controllers
         }
 
         [Route("register")]
-        [HttpPost]
+        [HttpGet]
         public IActionResult Register()
         {
            

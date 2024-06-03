@@ -12,7 +12,7 @@ function Test() {
 
     async function testEndpoint() {
 
-        const response = await fetch(`https://localhost:7035/User`);
+        const response = await fetch(`https://localhost:7035/User/Register`);
         const res = await response.text();
         console.log(res);
 
