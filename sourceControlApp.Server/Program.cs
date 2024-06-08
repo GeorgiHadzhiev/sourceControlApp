@@ -1,4 +1,5 @@
-using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using sourceControlApp.Server.Data;
 
 namespace sourceControlApp.Server
 {
@@ -14,6 +15,13 @@ namespace sourceControlApp.Server
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+                ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+            builder.Services.AddDbContext<SourceControlDbContext>(options =>
+                options.UseSqlServer(connectionString));
+
 
             var app = builder.Build();
 

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using sourceControlApp.Server.Data;
 
 namespace sourceControlApp.Server.Controllers
 {
@@ -8,18 +9,20 @@ namespace sourceControlApp.Server.Controllers
     {
 
         private readonly ILogger<UserController> _logger;
+        private readonly SourceControlDbContext data;
 
-        public UserController(ILogger<UserController> logger)
+        public UserController(ILogger<UserController> logger, SourceControlDbContext dbContext)
         {
             _logger = logger;
+            data = dbContext;
         }
 
         [Route("register")]
         [HttpGet]
         public IActionResult Register()
         {
-           
-            return Ok("This user has registered");
+
+            return Ok(data.Users.ToList());
         }
     }
 }
