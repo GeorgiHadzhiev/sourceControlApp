@@ -18,11 +18,13 @@ namespace sourceControlApp.Server.Controllers
         }
 
         [Route("register")]
-        [HttpGet]
+        [HttpPost]
         public IActionResult Register()
         {
 
-            return Ok(data.Users.ToList());
+            return Ok();
+
         }
     }
 }
+
