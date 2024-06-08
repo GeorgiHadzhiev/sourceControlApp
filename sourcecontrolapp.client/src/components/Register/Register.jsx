@@ -5,18 +5,18 @@ import { useNavigate } from "react-router-dom";
 
 function Register() {
 
-    let navigate = useNavigate()
+    const navigate = useNavigate()
     const { login } = useContext(AuthContext);
 
     function onSubmitHandler(e) {
 
         e.preventDefault();
-        let formData = new FormData(e.preventDefault());
+        const formData = new FormData(e.currentTarget);
 
-        let firstName = formData.get('firstName');
-        let lastName = formData.get('lastName');
-        let email = formData.get('email');
-        let password = formData.get('password');
+        const firstName = formData.get('firstName');
+        const lastName = formData.get('lastName');
+        const email = formData.get('email');
+        const password = formData.get('password');
         //let rePassword = formData.get('repeatPassword');
 
         authService.register(firstName, lastName, email, password)
