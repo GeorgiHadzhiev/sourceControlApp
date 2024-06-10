@@ -8,12 +8,12 @@ namespace sourceControlApp.Server.Controllers
     public class UserController : ControllerBase
     {
 
-        private readonly ILogger<UserController> _logger;
+        private readonly ILogger<UserController> logger;
         private readonly SourceControlDbContext data;
 
-        public UserController(ILogger<UserController> logger, SourceControlDbContext dbContext)
+        public UserController(ILogger<UserController> _logger, SourceControlDbContext dbContext)
         {
-            _logger = logger;
+            logger = _logger;
             data = dbContext;
         }
 
