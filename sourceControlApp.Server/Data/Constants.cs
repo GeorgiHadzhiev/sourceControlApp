@@ -3,7 +3,9 @@
     public class Constants
     {
 
-        //For Users
+        /// <summary>
+        /// Constants for User models
+        /// </summary>
         public const int UserNameLenght = 30;
         public const int EmailLenght = 50;
         public const int PasswordLenght = 30;
