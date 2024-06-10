@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using static sourceControlApp.Server.Data.Constants;
 
 namespace sourceControlApp.Server.Models
 {
@@ -9,19 +10,19 @@ namespace sourceControlApp.Server.Models
         public Guid Id { get; set; }
 
         [Required]
-        [MaxLength(30)]
+        [MaxLength(UserNameLenght)]
         public string FirstName { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(30)]
+        [MaxLength(UserNameLenght)]
         public string LastName { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(EmailLenght)]
         public string Email { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(30)]
+        [MaxLength(PasswordLenght)]
         public string Password { get; set; } = string.Empty;
 
     }
