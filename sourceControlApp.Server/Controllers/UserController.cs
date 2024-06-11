@@ -53,6 +53,19 @@ namespace sourceControlApp.Server.Controllers
             return Ok();
 
         }
+
+        [Route("login")]
+        [HttpPost]
+        public async Task<IActionResult> Login([FromBody] User user)
+        {
+
+            var dbUser = data.Users
+                .Where(u => u.Email == user.Email)
+                .FirstOrDefault();
+
+            return Ok("");
+
+        }
     }
 }
 
