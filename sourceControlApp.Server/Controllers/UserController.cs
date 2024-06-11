@@ -20,7 +20,7 @@ namespace sourceControlApp.Server.Controllers
 
         [Route("register")]
         [HttpPost]
-        public IActionResult Register(UserRegisterModel model)
+        public async Task<IActionResult> Register(UserRegisterModel model)
         {
             var user = new User()
             {
@@ -33,7 +33,8 @@ namespace sourceControlApp.Server.Controllers
 
             };
 
-            data.Users.Add(user);
+            await data.Users.AddAsync(user);
+            await data.SaveChangesAsync();
 
             return Ok();
 
