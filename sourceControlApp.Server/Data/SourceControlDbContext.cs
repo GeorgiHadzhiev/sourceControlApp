@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using sourceControlApp.Server.Models;
 
 namespace sourceControlApp.Server.Data
 {

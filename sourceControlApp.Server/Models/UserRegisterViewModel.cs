@@ -3,11 +3,8 @@ using static sourceControlApp.Server.Data.Constants;
 
 namespace sourceControlApp.Server.Models
 {
-    public class User
+    public class UserRegisterViewModel
     {
-
-        [Key]
-        public Guid Id { get; set; }
 
         [Required]
         [MaxLength(UserNameLenght)]
