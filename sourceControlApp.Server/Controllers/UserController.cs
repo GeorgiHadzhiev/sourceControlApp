@@ -23,7 +23,7 @@ namespace sourceControlApp.Server.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(UserRegisterModel model)
         {
-            string hashedPassword = BCrypt.Net.BCrypt
+            string hashedPassword = BC
                 .EnhancedHashPassword(model.Password,SaltRounds);
 
             var user = new User()
@@ -39,6 +39,16 @@ namespace sourceControlApp.Server.Controllers
 
             await data.Users.AddAsync(user);
             await data.SaveChangesAsync();
+
+            bool passwordValidation = BC
+                .EnhancedVerify(model.Password, hashedPassword);
+
+            if(passwordValidation == false) 
+            {
+
+                throw new Exception("Invalid Username or Password.");
+                
+            }
 
             return Ok();
 
