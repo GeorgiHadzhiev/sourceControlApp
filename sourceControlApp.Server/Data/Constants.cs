@@ -19,5 +19,14 @@
         public const int PasswordLenghtMin = 8;
         #endregion
 
+
+        /// <summary>
+        /// This is how many iterations will be performed
+        /// when calculating the hash
+        /// </summary>
+        #region "Salt for has"
+        public const int SaltRounds = 13;
+        #endregion
+
     }
 }

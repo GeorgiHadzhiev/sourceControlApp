@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using sourceControlApp.Server.Data;
 using sourceControlApp.Server.Models;
+using static sourceControlApp.Server.Data.Constants;
 
 namespace sourceControlApp.Server.Controllers
 {
@@ -22,6 +23,9 @@ namespace sourceControlApp.Server.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(UserRegisterModel model)
         {
+            string hashedPassword = BCrypt.Net.BCrypt
+                .EnhancedHashPassword(model.Password,SaltRounds);
+
             var user = new User()
             {
 
@@ -29,7 +33,7 @@ namespace sourceControlApp.Server.Controllers
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Email = model.Email,
-                Password = model.Password,
+                Password = hashedPassword,
 
             };
 
