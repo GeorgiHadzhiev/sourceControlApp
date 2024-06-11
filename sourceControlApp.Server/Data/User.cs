@@ -10,19 +10,19 @@ namespace sourceControlApp.Server.Data
         public Guid Id { get; set; }
 
         [Required]
-        [MaxLength(UserNameLenght)]
+        [MaxLength(UserNameLenghtMax)]
         public string FirstName { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(UserNameLenght)]
+        [MaxLength(UserNameLenghtMax)]
         public string LastName { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(EmailLenght)]
+        [MaxLength(EmailLenghtMax)]
         public string Email { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(PasswordLenght)]
+        [MaxLength(PasswordLenghtMax)]
         public string Password { get; set; } = string.Empty;
 
     }

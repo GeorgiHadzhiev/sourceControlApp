@@ -7,19 +7,19 @@ namespace sourceControlApp.Server.Models
     {
 
         [Required]
-        [MaxLength(UserNameLenght)]
+        [StringLength(UserNameLenghtMax,MinimumLength = UserNameLenghtMin)]
         public string FirstName { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(UserNameLenght)]
+        [StringLength(UserNameLenghtMax, MinimumLength = UserNameLenghtMin)]
         public string LastName { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(EmailLenght)]
+        [StringLength(EmailLenghtMax, MinimumLength = EmailLenghtMin)]
         public string Email { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(PasswordLenght)]
+        [StringLength(PasswordLenghtMax, MinimumLength = PasswordLenghtMin)]
         public string Password { get; set; } = string.Empty;
 
     }
