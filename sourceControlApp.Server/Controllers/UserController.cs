@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using sourceControlApp.Server.Data;
+using sourceControlApp.Server.Models;
 
 namespace sourceControlApp.Server.Controllers
 {
@@ -19,8 +20,20 @@ namespace sourceControlApp.Server.Controllers
 
         [Route("register")]
         [HttpPost]
-        public IActionResult Register()
+        public IActionResult Register(UserRegisterModel model)
         {
+            var user = new User()
+            {
+
+                Id = Guid.NewGuid(),
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Email = model.Email,
+                Password = model.Password,
+
+            };
+
+            data.Users.Add(user);
 
             return Ok();
 

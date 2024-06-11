@@ -3,7 +3,7 @@ using static sourceControlApp.Server.Data.Constants;
 
 namespace sourceControlApp.Server.Models
 {
-    public class UserRegisterViewModel
+    public class UserRegisterModel
     {
 
         [Required]
