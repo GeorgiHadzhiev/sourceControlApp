@@ -16,6 +16,7 @@
 
         #region "Password"
         public const int PasswordLenghtMax = 30;
+        public const int PasswordLenghtMaxDb = 150;
         public const int PasswordLenghtMin = 8;
         #endregion
 

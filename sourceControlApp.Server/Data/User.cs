@@ -22,7 +22,7 @@ namespace sourceControlApp.Server.Data
         public string Email { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(PasswordLenghtMax)]
+        [MaxLength(PasswordLenghtMaxDb)]
         public string Password { get; set; } = string.Empty;
 
     }
