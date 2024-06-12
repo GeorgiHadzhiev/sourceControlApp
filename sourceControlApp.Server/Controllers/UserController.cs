@@ -101,8 +101,6 @@ namespace sourceControlApp.Server.Controllers
             }
 
         }
-
-
         private static void passwordCheker(string password, string? hashedPassword)
         {
             bool passwordValidation = BC

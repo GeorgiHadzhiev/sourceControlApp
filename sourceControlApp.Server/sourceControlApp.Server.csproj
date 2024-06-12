@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	  <Using Include="BCrypt.Net.BCrypt" Alias="BC" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
