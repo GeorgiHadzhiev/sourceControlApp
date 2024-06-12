@@ -72,7 +72,7 @@ namespace sourceControlApp.Server.Controllers
             if (dbUser == null)
             {
 
-                return BadRequest("Username or Password is Incorrect!");
+                return BadRequest(WrongEmailOrPass);
 
             }
 
@@ -92,7 +92,7 @@ namespace sourceControlApp.Server.Controllers
             if (passwordValidation == false)
             {
 
-                throw new Exception("Invalid Username or Password!");
+                throw new Exception(WrongEmailOrPass);
 
             }
         }

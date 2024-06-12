@@ -29,5 +29,10 @@
         public const int SaltRounds = 13;
         #endregion
 
+        /// <summary>
+        /// Messages displaied when user enters wrong credentials
+        /// </summary>
+        public const string WrongEmailOrPass = "Email or Password is Incorrect!";
+
     }
 }
