@@ -94,7 +94,7 @@ namespace sourceControlApp.Server.Controllers
 
                 }
 
-                passwordCheker(user.Password, dbUser?.Password);
+                PasswordCheker(user.Password, dbUser?.Password);
 
                 UserPayload payload = LoginService(dbUser);
 
@@ -117,7 +117,7 @@ namespace sourceControlApp.Server.Controllers
                     new Claim(ClaimTypes.Email, dbUser.Email),
                     new Claim("userId", dbUser.Id.ToString()),
                 };
-            var token = getToken(authClaims);
+            var token = GetToken(authClaims);
 
             var payload = new UserPayload()
             {
@@ -129,19 +129,19 @@ namespace sourceControlApp.Server.Controllers
             };
             return payload;
         }
-        private static void passwordCheker(string password, string? hashedPassword)
+        private static void PasswordCheker(string password, string? hashedPassword)
         {
             bool passwordValidation = BC
                             .EnhancedVerify(password, hashedPassword);
 
-            if (passwordValidation == false)
+            if (!passwordValidation)
             {
 
                 throw new Exception(WrongEmailOrPass);
 
             }
         }
-        private JwtSecurityToken getToken(List<Claim> authClaim)
+        private JwtSecurityToken GetToken(List<Claim> authClaim)
         {
             var authKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Secret"]));
 
