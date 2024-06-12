@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using sourceControlApp.Server.Data;
 using sourceControlApp.Server.Models;
 using static sourceControlApp.Server.Data.Constants;
@@ -51,9 +52,9 @@ namespace sourceControlApp.Server.Controllers
         public async Task<IActionResult> Login([FromBody] User user)
         {
 
-            var dbUser = data.Users
+            var dbUser = await data.Users
                 .Where(u => u.Email == user.Email)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
             if (dbUser == null)
             {
