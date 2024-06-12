@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sourceControlApp.Server", "sourceControlApp.Server\sourceControlApp.Server.csproj", "{EF8A059C-C173-49FA-8656-E67A6612C80D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sourceControlApp.Server", "sourceControlApp.Server\sourceControlApp.Server.csproj", "{EF8A059C-C173-49FA-8656-E67A6612C80D}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "sourcecontrolapp.client", "sourcecontrolapp.client\sourcecontrolapp.client.esproj", "{B426F7AF-B3AB-41BB-952C-F6E42AA6B051}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "sourceControlapp.client", "sourcecontrolapp.client\sourceControlapp.client.esproj", "{B426F7AF-B3AB-41BB-952C-F6E42AA6B051}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
