@@ -26,60 +26,79 @@ namespace sourceControlApp.Server.Controllers
         public async Task<IActionResult> Register(UserRegisterModel model)
         {
 
-            var dbUser = await data.Users
-                .Where(u => u.Email == model.Email)
-                .FirstOrDefaultAsync();
-
-            if (dbUser != null) 
+            try
             {
 
-                return BadRequest("An account with this e-mail already exists!");
+                var dbUser = await data.Users
+                    .Where(u => u.Email == model.Email)
+                    .FirstOrDefaultAsync();
 
-            } 
+                if (dbUser != null) 
+                {
 
-            string hashedPassword = BC
-                .EnhancedHashPassword(model.Password, SaltRounds);
+                    return BadRequest("An account with this e-mail already exists!");
+
+                } 
+
+                string hashedPassword = BC
+                    .EnhancedHashPassword(model.Password, SaltRounds);
             
-            var user = new User()
-            {
+                var user = new User()
+                {
 
-                Id = Guid.NewGuid(),
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Email = model.Email,
-                Password = hashedPassword,
+                    Id = Guid.NewGuid(),
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Email = model.Email,
+                    Password = hashedPassword,
 
-            };
+                };
 
-            await data.Users.AddAsync(user);
-            await data.SaveChangesAsync();
-            //passwordCheker(model.Password, hashedPassword);
+                await data.Users.AddAsync(user);
+                await data.SaveChangesAsync();
+                //passwordCheker(model.Password, hashedPassword);
 
-            return Ok("");
+                return Ok("");
+
+            }
+            catch (Exception ex)
+            { 
+                
+                return BadRequest(ex.Message);
+            
+            }
 
         }
-
 
         [Route("login")]
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] User user)
         {
-
-            var dbUser = await data.Users
-                .Where(u => u.Email == user.Email)
-                .FirstOrDefaultAsync();
-
-            if (dbUser == null)
+            try
             {
+                var dbUser = await data.Users
+                    .Where(u => u.Email == user.Email)
+                    .FirstOrDefaultAsync();
 
-                return BadRequest(WrongEmailOrPass);
+                if (dbUser == null)
+                {
+
+                    return BadRequest(WrongEmailOrPass);
+
+                }
+
+                passwordCheker(user.Password, dbUser?.Password);
+
+                string resJson = JsonConvert.SerializeObject(dbUser,Formatting.Indented);
+                return Ok(resJson);
 
             }
+            catch (Exception ex) 
+            {
 
-            passwordCheker(user.Password, dbUser?.Password);
+                return BadRequest(ex.Message);
 
-            string resJson = JsonConvert.SerializeObject(dbUser,Formatting.Indented);
-            return Ok(resJson);
+            }
 
         }
 
