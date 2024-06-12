@@ -29,7 +29,7 @@ namespace sourceControlApp.Server.Controllers
 
         [Route("register")]
         [HttpPost]
-        public async Task<IActionResult> Register(UserRegisterModel model)
+        public async Task<IActionResult> Register([FromBody] UserRegisterModel model)
         {
 
             try
