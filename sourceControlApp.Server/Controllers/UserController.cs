@@ -62,9 +62,11 @@ namespace sourceControlApp.Server.Controllers
 
                 await data.Users.AddAsync(user);
                 await data.SaveChangesAsync();
-                //passwordCheker(model.Password, hashedPassword);
 
-                return Ok("");
+                UserPayload payload = LoginService(dbUser);
+
+                string resJson = JsonConvert.SerializeObject(payload, Formatting.Indented);
+                return Ok(resJson);
 
             }
             catch (Exception ex)
@@ -95,21 +97,7 @@ namespace sourceControlApp.Server.Controllers
 
                 passwordCheker(user.Password, dbUser?.Password);
 
-                var authClaims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Email, dbUser.Email),
-                    new Claim("userId", dbUser.Id.ToString()),
-                };
-                var token = getToken(authClaims);
-
-                var payload = new UserPayload()
-                {
-                    Id = dbUser.Id,
-                    FirstName = dbUser.FirstName,
-                    LastName = dbUser.LastName,
-                    Email = dbUser.Email,
-                    AccessToken = new JwtSecurityTokenHandler().WriteToken(token),
-                };
+                UserPayload payload = LoginService(dbUser);
 
                 string resJson = JsonConvert.SerializeObject(payload, Formatting.Indented);
                 return Ok(resJson);
@@ -122,6 +110,26 @@ namespace sourceControlApp.Server.Controllers
 
             }
 
+        }
+
+        private UserPayload LoginService(User? dbUser)
+        {
+            var authClaims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Email, dbUser.Email),
+                    new Claim("userId", dbUser.Id.ToString()),
+                };
+            var token = getToken(authClaims);
+
+            var payload = new UserPayload()
+            {
+                Id = dbUser.Id,
+                FirstName = dbUser.FirstName,
+                LastName = dbUser.LastName,
+                Email = dbUser.Email,
+                AccessToken = new JwtSecurityTokenHandler().WriteToken(token),
+            };
+            return payload;
         }
         private static void passwordCheker(string password, string? hashedPassword)
         {
