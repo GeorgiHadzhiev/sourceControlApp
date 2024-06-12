@@ -24,7 +24,7 @@
         /// This is how many iterations will be performed
         /// when calculating the hash
         /// </summary>
-        #region "Salt for has"
+        #region "Salt for hash"
         public const int SaltRounds = 13;
         #endregion
 
