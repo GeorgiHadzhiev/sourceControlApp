@@ -24,7 +24,7 @@ namespace sourceControlApp.Server.Controllers
         public async Task<IActionResult> Register(UserRegisterModel model)
         {
             string hashedPassword = BC
-                .EnhancedHashPassword(model.Password,SaltRounds);
+                .EnhancedHashPassword(model.Password, SaltRounds);
 
             var user = new User()
             {
@@ -39,20 +39,12 @@ namespace sourceControlApp.Server.Controllers
 
             await data.Users.AddAsync(user);
             await data.SaveChangesAsync();
+            //passwordCheker(model.Password, hashedPassword);
 
-            bool passwordValidation = BC
-                .EnhancedVerify(model.Password, hashedPassword);
-
-            if(passwordValidation == false) 
-            {
-
-                throw new Exception("Invalid Username or Password.");
-                
-            }
-
-            return Ok();
+            return Ok("");
 
         }
+
 
         [Route("login")]
         [HttpPost]
@@ -63,9 +55,34 @@ namespace sourceControlApp.Server.Controllers
                 .Where(u => u.Email == user.Email)
                 .FirstOrDefault();
 
+            if (dbUser == null)
+            {
+
+                return BadRequest("Username or Password is Incorrect!");
+
+            }
+
+            passwordCheker(user.Password, dbUser?.Password);
+
             return Ok("");
 
         }
+
+
+        private static void passwordCheker(string password, string? hashedPassword)
+        {
+            bool passwordValidation = BC
+                            .EnhancedVerify(password, hashedPassword);
+
+            if (passwordValidation == false)
+            {
+
+                throw new Exception("Invalid Username or Password!");
+
+            }
+        }
+
+
     }
 }
 
