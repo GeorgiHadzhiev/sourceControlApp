@@ -80,7 +80,7 @@ namespace sourceControlApp.Server.Controllers
 
         [Route("login")]
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody] User user)
+        public async Task<IActionResult> Login([FromBody] UserLoginModel user)
         {
             try
             {
