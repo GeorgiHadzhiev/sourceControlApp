@@ -1,8 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using sourceControlApp.Server.Data;
 using sourceControlApp.Server.Models;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using static sourceControlApp.Server.Data.Constants;
 
 namespace sourceControlApp.Server.Controllers
@@ -14,11 +18,13 @@ namespace sourceControlApp.Server.Controllers
 
         private readonly ILogger<UserController> logger;
         private readonly SourceControlDbContext data;
+        private readonly IConfiguration config;
 
-        public UserController(ILogger<UserController> _logger, SourceControlDbContext dbContext)
+        public UserController(ILogger<UserController> _logger, SourceControlDbContext dbContext, IConfiguration _configuration)
         {
             logger = _logger;
             data = dbContext;
+            config = _configuration;
         }
 
         [Route("register")]
@@ -89,6 +95,12 @@ namespace sourceControlApp.Server.Controllers
 
                 passwordCheker(user.Password, dbUser?.Password);
 
+                var authClaims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Email, dbUser.Email),
+                    new Claim("userId", dbUser.Id.ToString()),
+                };
+                var token = getToken(authClaims);
                 string resJson = JsonConvert.SerializeObject(dbUser,Formatting.Indented);
                 return Ok(resJson);
 
@@ -113,7 +125,18 @@ namespace sourceControlApp.Server.Controllers
 
             }
         }
+        private JwtSecurityToken getToken(List<Claim> authClaim)
+        {
+            var authKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Secret"]));
 
+            var token = new JwtSecurityToken(
+                issuer: config["JWT:ValidIssuer"],
+                audience: config["JWT:ValidAudience"],
+                claims: authClaim,
+                signingCredentials: new SigningCredentials(authKey,SecurityAlgorithms.HmacSha256));
+
+            return token;
+        }
 
     }
 }
