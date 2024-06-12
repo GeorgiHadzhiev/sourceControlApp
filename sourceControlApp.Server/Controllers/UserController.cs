@@ -24,6 +24,18 @@ namespace sourceControlApp.Server.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(UserRegisterModel model)
         {
+
+            var dbUser = await data.Users
+                .Where(u => u.Email == model.Email)
+                .FirstOrDefaultAsync();
+
+            if (dbUser != null) 
+            {
+
+                return BadRequest("An account with this e-mail already exists!");
+
+            } 
+
             string hashedPassword = BC
                 .EnhancedHashPassword(model.Password, SaltRounds);
 
