@@ -101,7 +101,17 @@ namespace sourceControlApp.Server.Controllers
                     new Claim("userId", dbUser.Id.ToString()),
                 };
                 var token = getToken(authClaims);
-                string resJson = JsonConvert.SerializeObject(dbUser,Formatting.Indented);
+
+                var payload = new UserPayload()
+                {
+                    Id = dbUser.Id,
+                    FirstName = dbUser.FirstName,
+                    LastName = dbUser.LastName,
+                    Email = dbUser.Email,
+                    AccessToken = new JwtSecurityTokenHandler().WriteToken(token),
+                };
+
+                string resJson = JsonConvert.SerializeObject(payload, Formatting.Indented);
                 return Ok(resJson);
 
             }
