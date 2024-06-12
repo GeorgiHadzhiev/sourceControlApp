@@ -63,7 +63,7 @@ namespace sourceControlApp.Server.Controllers
                 await data.Users.AddAsync(user);
                 await data.SaveChangesAsync();
 
-                UserPayload payload = LoginService(dbUser);
+                UserPayload payload = LoginService(user);
 
                 string resJson = JsonConvert.SerializeObject(payload, Formatting.Indented);
                 return Ok(resJson);
