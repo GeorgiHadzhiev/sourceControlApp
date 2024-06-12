@@ -11,7 +11,8 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
-	  <Using Include="BCrypt.Net.BCrypt" Alias="BC"/>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	  <Using Include="BCrypt.Net.BCrypt" Alias="BC" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>6.*-*</Version>
     </PackageReference>

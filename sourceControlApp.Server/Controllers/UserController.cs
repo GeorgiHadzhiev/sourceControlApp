@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using sourceControlApp.Server.Data;
 using sourceControlApp.Server.Models;
 using static sourceControlApp.Server.Data.Constants;
@@ -38,7 +39,7 @@ namespace sourceControlApp.Server.Controllers
 
             string hashedPassword = BC
                 .EnhancedHashPassword(model.Password, SaltRounds);
-
+            
             var user = new User()
             {
 
@@ -77,7 +78,8 @@ namespace sourceControlApp.Server.Controllers
 
             passwordCheker(user.Password, dbUser?.Password);
 
-            return Ok("");
+            string resJson = JsonConvert.SerializeObject(dbUser,Formatting.Indented);
+            return Ok(resJson);
 
         }
 
