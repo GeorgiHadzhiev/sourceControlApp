@@ -34,5 +34,11 @@
         /// </summary>
         public const string WrongEmailOrPass = "Email or Password is Incorrect!";
 
+        #region "Errors
+
+        public const string StringLenghtErrorMessage = "The field {0} must be between {2} and {1} characters long!";
+
+        #endregion
+
     }
 }
