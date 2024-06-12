@@ -77,7 +77,6 @@ namespace sourceControlApp.Server.Controllers
             }
 
         }
-
         [Route("login")]
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] UserLoginModel user)
@@ -111,7 +110,6 @@ namespace sourceControlApp.Server.Controllers
             }
 
         }
-
         private UserPayload LoginService(User? dbUser)
         {
             var authClaims = new List<Claim>
