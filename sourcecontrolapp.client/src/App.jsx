@@ -1,4 +1,3 @@
-//import './App.css';
 import './components/LandingPage/LandingPage.jsx'
 import { Routes,Route } from 'react-router-dom'
 import {AuthProvder} from './contexts/AuthContext.jsx'
