@@ -1,11 +1,11 @@
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import classes from './Home.module.css'
+import classes from './MyProfile.module.css'
 import { AuthContext } from '../../contexts/AuthContext.jsx'
 import { useContext } from 'react'
 
-function Home() {
+function MyProfile() {
 
     const { user } = useContext(AuthContext);
 
@@ -25,4 +25,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default MyProfile;

@@ -4,7 +4,7 @@ import {AuthProvder} from './contexts/AuthContext.jsx'
 
 
 import LandingPage from './components/LandingPage/LandingPage.jsx';
-import Home from './components/Home/Home.jsx'
+import MyProfile from './components/MyProfile/MyProfile.jsx'
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 
@@ -16,7 +16,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<LandingPage />} />
-                <Route path="/home" element={<Home />} />
+                <Route path="/MyProfile" element={<MyProfile />} />
                 <Route path="/login" element={<Login/>} />
                 <Route path="/register" element={<Register />} />
             </Routes>
