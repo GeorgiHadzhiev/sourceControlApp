@@ -1,6 +1,6 @@
 import ContributorsList from './ContributorsList/ContributorsList.jsx'
 import ListGroup from 'react-bootstrap/ListGroup';
-import { useState,useRef } from 'React'
+import { useState,useRef } from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -23,8 +23,7 @@ function Add() {
 
         const next = [...contributors, contributoursList.current.value]
         setContrib(next)
-
-        console.log(contributors)
+        contributoursList.current.value = ""
 
     }
 
@@ -84,6 +83,7 @@ function Add() {
                 {contributors.map(c => (<ContributorsList key={c} contributor={c}/>))}
             </ListGroup>
 
+            <br />
 
             <Button type="submit" variant="success">Submit</Button>
         </Form>
