@@ -20,11 +20,11 @@ namespace sourceControlApp.Server.Controllers
         private readonly SourceControlDbContext data;
         private readonly IConfiguration config;
 
-        public UserController(ILogger<UserController> _logger, SourceControlDbContext dbContext, IConfiguration _configuration)
+        public UserController(ILogger<UserController> _logger, SourceControlDbContext dbContext, IConfiguration configuration)
         {
             logger = _logger;
             data = dbContext;
-            config = _configuration;
+            config = configuration;
         }
 
         [Route("register")]
