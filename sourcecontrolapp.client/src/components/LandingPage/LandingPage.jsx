@@ -1,10 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import classes from './LandingPage.module.css';
 
 function LandingPage() {
     return (
 
-        <div>
+        <div className={`${classes.landingPage}`}>
             <h1>Hello, welcome to The Source Control</h1>
             <div className="mb-2">
                 <Link to= "/login">
