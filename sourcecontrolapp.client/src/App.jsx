@@ -7,6 +7,7 @@ import MyProfile from './components/MyProfile/MyProfile.jsx'
 import Dashboard from './components/Dashboard/Dashboard.jsx'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
+import Add from './components/Add/Add.jsx'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/Dashboard" element={<Dashboard />} />
                 <Route path="/login" element={<Login/>} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/Add" element={<Add />} />
             </Routes>
 
         </AuthProvder>
