@@ -1,10 +1,24 @@
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
+import classes from './Add.module.css';
+
 function Add() {
+
+    let contributors = [];
+    function contributorButton() {
+
+        let inputEl = document.getElementById("_contributors")
+        contributors.push(inputEl.value)
+
+        console.log(contributors)
+
+    }
+
     return (
-        <div className=".addForm">
+        <div className={`${classes.addForm}`} >
             <InputGroup className="mb-3">
-                <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                <InputGroup.Text id="basic-addon1">Name Your Repo</InputGroup.Text>
                 <Form.Control
                     placeholder="Repository Name"
                     aria-label="Repository Name"
@@ -12,33 +26,51 @@ function Add() {
                 />
             </InputGroup>
 
-            <InputGroup className="mb-3">
-                <Form.Control
-                    placeholder="Recipient's username"
-                    aria-label="Recipient's username"
-                    aria-describedby="basic-addon2"
-                />
-                <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
-            </InputGroup>
-
-            <Form.Label htmlFor="basic-url">Your vanity URL</Form.Label>
-            <InputGroup className="mb-3">
-                <InputGroup.Text id="basic-addon3">
-                    https://example.com/users/
-                </InputGroup.Text>
-                <Form.Control id="basic-url" aria-describedby="basic-addon3" />
-            </InputGroup>
-
-            <InputGroup className="mb-3">
-                <InputGroup.Text>$</InputGroup.Text>
-                <Form.Control aria-label="Amount (to the nearest dollar)" />
-                <InputGroup.Text>.00</InputGroup.Text>
-            </InputGroup>
-
             <InputGroup>
-                <InputGroup.Text>With textarea</InputGroup.Text>
+                <InputGroup.Text>Description</InputGroup.Text>
                 <Form.Control as="textarea" aria-label="With textarea" />
             </InputGroup>
+
+            <br/>
+
+            <Form>
+                {['radio'].map((type) => (
+                    <div key={`default-${type}`} className="mb-3">
+                        <Form.Check                            
+                            label="Public"
+                            name="group1"
+                            type={type}
+                            id={`default-${type}-1`}
+                        />
+                        <Form.Check
+                            
+                            label="Private"
+                            name="group1"
+                            type={type}
+                            id={`default-${type}-2`}
+                        />
+                    </div>
+                ))}
+            </Form>
+
+            <br />
+
+            <Form.Label htmlFor="inputPassword5">Add Contributors</Form.Label>
+            <InputGroup className="mb-3">
+                <Button variant="success" onMouseDown={contributorButton}>+</Button>
+                <Form.Control
+                    id="_contributors"
+                    placeholder="Contributors Emails"
+                    aria-label="Contributors Emails"
+                    aria-describedby="basic-addon1"
+                />
+            </InputGroup>
+
+
+
+
+            
+
         </div>
 
     )
