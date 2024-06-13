@@ -1,3 +1,6 @@
+import ContributorsList from './ContributorsList/ContributorsList.jsx'
+import ListGroup from 'react-bootstrap/ListGroup';
+import { useState,useRef } from 'React'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -5,18 +8,28 @@ import classes from './Add.module.css';
 
 function Add() {
 
-    let contributors = [];
+    const [contributors, setContrib] = useState([])
+    const contributoursList = useRef();
+
+    function onSubmitHanlder(e) {
+
+        e.preventDefault()
+
+        console.log("Hey, this works!")
+
+    }
+
     function contributorButton() {
 
-        let inputEl = document.getElementById("_contributors")
-        contributors.push(inputEl.value)
+        const next = [...contributors, contributoursList.current.value]
+        setContrib(next)
 
         console.log(contributors)
 
     }
 
     return (
-        <div className={`${classes.addForm}`} >
+        <Form className={`${classes.addForm}`} onSubmit={onSubmitHanlder} method="POST">
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">Name Your Repo</InputGroup.Text>
                 <Form.Control
@@ -33,7 +46,7 @@ function Add() {
 
             <br/>
 
-            <Form>
+            <div>
                 {['radio'].map((type) => (
                     <div key={`default-${type}`} className="mb-3">
                         <Form.Check                            
@@ -51,7 +64,7 @@ function Add() {
                         />
                     </div>
                 ))}
-            </Form>
+            </div>
 
             <br />
 
@@ -59,7 +72,7 @@ function Add() {
             <InputGroup className="mb-3">
                 <Button variant="success" onMouseDown={contributorButton}>+</Button>
                 <Form.Control
-                    id="_contributors"
+                    ref={contributoursList}
                     placeholder="Contributors Emails"
                     aria-label="Contributors Emails"
                     aria-describedby="basic-addon1"
@@ -67,11 +80,13 @@ function Add() {
             </InputGroup>
 
 
+            <ListGroup>
+                {contributors.map(c => (<ContributorsList key={c} contributor={c}/>))}
+            </ListGroup>
 
 
-            
-
-        </div>
+            <Button type="submit" variant="success">Submit</Button>
+        </Form>
 
     )
 }
