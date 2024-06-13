@@ -1,10 +1,12 @@
 import authService from "../../services/authService";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/no-unescaped-entities */
 function Login() {
 
+    const navigate = useNavigate()
     const { login } = useContext(AuthContext);
 
     const onLoginHandler = (e) => {
@@ -20,6 +22,7 @@ function Login() {
             .then(res => {
 
                 login(res)
+                navigate('/home')
 
             })
             .catch(err => {

@@ -23,7 +23,7 @@ function Register() {
             .then(res => {
 
                 login(res);
-                navigate('/');
+                navigate('/home');
 
             })
             .catch(err => {
