@@ -1,6 +1,6 @@
 import ContributorsList from './ContributorsList/ContributorsList.jsx'
 import ListGroup from 'react-bootstrap/ListGroup';
-import { useState,useRef } from 'react'
+import { useState,useEffect,useRef } from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -8,8 +8,23 @@ import classes from './Add.module.css';
 
 function Add() {
 
-    const [contributors, setContrib] = useState([])
+
+    let [contributors, setContrib] = useState([])
+    const [remove, setRemove] = useState(false)
+    const [contributorToRemove, setContributorToRemove] = useState("")
     const contributoursList = useRef();
+
+    useEffect(() => {
+
+        if (remove) {
+
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            contributors = contributors.filter(c => c !== contributorToRemove)
+            setContrib(contributors)
+
+        }
+
+    }, [remove,contributorToRemove])
 
     function onSubmitHanlder(e) {
 
@@ -80,7 +95,7 @@ function Add() {
 
 
             <ListGroup>
-                {contributors.map(c => (<ContributorsList key={c} contributor={c} />))}
+                {contributors.map(c => (<ContributorsList key={c} contributor={c} setRemove={setRemove} setContributorToRemove={setContributorToRemove} />))}
             </ListGroup>
 
             <br />
