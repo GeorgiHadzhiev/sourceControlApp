@@ -11,9 +11,9 @@ function LandingPage() {
                 <Link to= "/login">
                     <Button variant="primary" size="lg">
                       Log In
-                    </Button>{' '}                   
+                    </Button>                  
                 </Link>
-                <Link to="/register">
+                {' '}<Link to="/register">
                     <Button variant="secondary" size="lg">
                       Register
                     </Button>
