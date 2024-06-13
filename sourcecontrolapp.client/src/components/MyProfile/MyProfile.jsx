@@ -16,7 +16,7 @@ function MyProfile() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/Home">Dashboard</Nav.Link>
+                        <Nav.Link href="/Dashboard">Dashboard</Nav.Link>
                         <Nav.Link href="/Add">Create Repository</Nav.Link>
                         <Nav.Link href="/Logout">Logout</Nav.Link>
                     </Nav>
