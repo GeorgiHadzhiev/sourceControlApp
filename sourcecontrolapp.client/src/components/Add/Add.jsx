@@ -80,7 +80,7 @@ function Add() {
 
 
             <ListGroup>
-                {contributors.map(c => (<ContributorsList key={c} contributor={c}/>))}
+                {contributors.map(c => (<ContributorsList key={c} contributor={c} />))}
             </ListGroup>
 
             <br />
