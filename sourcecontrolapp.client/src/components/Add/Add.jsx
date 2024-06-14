@@ -21,6 +21,7 @@ function Add() {
             // eslint-disable-next-line react-hooks/exhaustive-deps
             contributors = contributors.filter(c => c !== contributorToRemove)
             setContrib(contributors)
+            setRemove(false)
 
         }
 

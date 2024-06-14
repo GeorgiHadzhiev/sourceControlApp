@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import classes from './ContributorList.module.css'
 
 // eslint-disable-next-line react/prop-types
-function ContributorsList({ contributor, setRemove, setContributorToRemove }) {
+function ContributorsList({ contributor,setRemove, setContributorToRemove }) {
 
     function onRemoveHandler() {
 
