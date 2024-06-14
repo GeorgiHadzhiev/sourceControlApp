@@ -1,10 +1,10 @@
 import ContributorsList from './ContributorsList/ContributorsList.jsx'
-import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroup from 'react-bootstrap/ListGroup'
 import { useState,useEffect,useRef } from 'react'
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import classes from './Add.module.css';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import InputGroup from 'react-bootstrap/InputGroup'
+import classes from './Add.module.css'
 
 function Add() {
 
@@ -12,7 +12,7 @@ function Add() {
     let [contributors, setContrib] = useState([])
     const [remove, setRemove] = useState(false)
     const [contributorToRemove, setContributorToRemove] = useState("")
-    const contributoursList = useRef();
+    const contributoursList = useRef()
 
     useEffect(() => {
 
@@ -107,4 +107,4 @@ function Add() {
     )
 }
 
-export default Add;
+export default Add
