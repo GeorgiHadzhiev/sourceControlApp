@@ -113,6 +113,8 @@ namespace sourceControlApp.Server.Controllers
             }
 
         }
+        [Route("logout")]
+        [HttpGet]
         public IActionResult Logout()
         {
 
