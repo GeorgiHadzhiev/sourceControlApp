@@ -37,7 +37,9 @@ namespace sourceControlApp.Server.Controllers
 
                 var dbUser = await data.Users
                     .Where(u => u.Email == model.Email)
+                    .AsNoTracking()
                     .FirstOrDefaultAsync();
+                    
 
                 if (dbUser != null) 
                 {
@@ -85,6 +87,7 @@ namespace sourceControlApp.Server.Controllers
             {
                 var dbUser = await data.Users
                     .Where(u => u.Email == user.Email)
+                    .AsNoTracking()
                     .FirstOrDefaultAsync();
 
                 if (dbUser == null)
