@@ -37,8 +37,8 @@ function Add() {
 
     function contributorButton() {
 
-        const next = [...contributors, contributoursList.current.value]
-        setContrib(next)
+        const contributorsArray = [...contributors, contributoursList.current.value]
+        setContrib(contributorsArray)
         contributoursList.current.value = ""
 
     }
