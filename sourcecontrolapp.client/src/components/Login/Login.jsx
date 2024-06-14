@@ -22,7 +22,7 @@ function Login() {
             .then(res => {
 
                 login(res)
-                navigate('/home')
+                navigate('/MyProfile')
 
             })
             .catch(err => {
