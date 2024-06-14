@@ -110,6 +110,12 @@ namespace sourceControlApp.Server.Controllers
             }
 
         }
+        public IActionResult Logout()
+        {
+
+            return Ok();
+
+        }
         private UserPayload LoginService(User? dbUser)
         {
             var authClaims = new List<Claim>
