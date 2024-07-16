@@ -121,7 +121,7 @@ namespace sourceControlApp.Server.Controllers
             return Ok();
 
         }
-        private UserPayload LoginService(User? dbUser)
+        private UserPayload LoginService(User dbUser)
         {
             var authClaims = new List<Claim>
                 {
