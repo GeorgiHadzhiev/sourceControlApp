@@ -39,18 +39,18 @@ namespace sourceControlApp.Server.Controllers
                     .Where(u => u.Email == model.Email)
                     .AsNoTracking()
                     .FirstOrDefaultAsync();
-                    
 
-                if (dbUser != null) 
+
+                if (dbUser != null)
                 {
 
                     return BadRequest("An account with this e-mail already exists!");
 
-                } 
+                }
 
                 string hashedPassword = BC
                     .EnhancedHashPassword(model.Password, SaltRounds);
-            
+
                 var user = new User()
                 {
 
@@ -72,10 +72,10 @@ namespace sourceControlApp.Server.Controllers
 
             }
             catch (Exception ex)
-            { 
-                
+            {
+
                 return BadRequest(ex.Message);
-            
+
             }
 
         }
@@ -105,7 +105,7 @@ namespace sourceControlApp.Server.Controllers
                 return Ok(resJson);
 
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
 
                 return BadRequest(ex.Message);
@@ -160,7 +160,7 @@ namespace sourceControlApp.Server.Controllers
                 issuer: config["JWT:ValidIssuer"],
                 audience: config["JWT:ValidAudience"],
                 claims: authClaim,
-                signingCredentials: new SigningCredentials(authKey,SecurityAlgorithms.HmacSha256));
+                signingCredentials: new SigningCredentials(authKey, SecurityAlgorithms.HmacSha256));
 
             return token;
         }
