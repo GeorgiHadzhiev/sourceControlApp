@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using static sourceControlApp.Server.Data.Constants;
 
 namespace sourceControlApp.Server.Data
@@ -26,6 +27,13 @@ namespace sourceControlApp.Server.Data
         public string Visibility { get; set; } = string.Empty;
 
         public IList<string> Contributors = new List<string>();
+
+        [Required]
+        public Guid UserId { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(UserId))]
+        public User User { get; set; } = null!;
 
 
     }
