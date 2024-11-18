@@ -1,6 +1,4 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-
-namespace sourceControlApp.Server.Data
+﻿namespace sourceControlApp.Server.Data
 {
     public class UserPayload
     {
