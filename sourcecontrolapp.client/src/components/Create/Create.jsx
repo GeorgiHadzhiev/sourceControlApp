@@ -40,6 +40,8 @@ function Add() {
         const visibility = formData.get('visibility');
         const contributors = formData.get('contributors');
 
+        console.log(visibility)
+
         repoService.create(code, name, description, visibility, contributors)
             .then(res => {
 
@@ -52,7 +54,6 @@ function Add() {
                 console.log(err)
 
             })
-
 
     }
 
@@ -87,24 +88,12 @@ function Add() {
 
             <br/>
 
-            <div>
-                {['radio'].map((type) => (
-                    <div key={`default-${type}`} className="mb-3" name="visibility">
-                        <Form.Check                            
-                            label="Public"
-                            name="group1"
-                            type={type}
-                            id={`default-${type}-1`}
-                        />
-                        <Form.Check
-                            
-                            label="Private"
-                            name="group1"
-                            type={type}
-                            id={`default-${type}-2`}
-                        />
-                    </div>
-                ))}
+            <div className={`${classes.visRadio}`}>
+                <input type="radio" name="visibility" value="Public"></input>
+                <label htmlFor="Public">Public</label>
+
+                <input type="radio" name="visibility" value="Private"></input>
+                <label htmlFor="Private">Private</label>
             </div>
 
             <br />
