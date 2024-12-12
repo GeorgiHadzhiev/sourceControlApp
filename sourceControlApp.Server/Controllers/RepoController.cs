@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using sourceControlApp.Server.Models;
 
 namespace sourceControlApp.Server.Controllers
 {
@@ -15,10 +16,12 @@ namespace sourceControlApp.Server.Controllers
             logger = _logger;
         }
 
-        public async Task<IActionResult> Create()
+        [Route("create")]
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] RepoCreateModel model)
         {
 
-
+            return Ok("Hey, this works!");
 
         }
 
