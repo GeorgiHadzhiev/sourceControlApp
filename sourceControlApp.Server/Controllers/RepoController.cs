@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using sourceControlApp.Server.Data;
 using sourceControlApp.Server.Models;
 
 namespace sourceControlApp.Server.Controllers
@@ -9,11 +10,13 @@ namespace sourceControlApp.Server.Controllers
     {
 
         private readonly ILogger<RepoController> logger;
+        private readonly SourceControlDbContext data;
 
 
-        public RepoController(ILogger<RepoController> _logger)
+        public RepoController(ILogger<RepoController> _logger, SourceControlDbContext dbContext)
         {
             logger = _logger;
+            data = dbContext;
         }
 
         [Route("Create")]
@@ -21,7 +24,22 @@ namespace sourceControlApp.Server.Controllers
         public async Task<IActionResult> Create([FromBody] RepoCreateModel model)
         {
 
-            return Ok("Hey, this works!");
+            Repository repo = new Repository()
+            {
+
+                Code = model.Code,
+                RepoName = model.RepoName,
+                Description = model.Description,
+                Visibility = model.Visibility,
+                Contributors = model.Contributors,
+
+            };
+
+            await data.Repositories.AddAsync(repo);
+            await data.SaveChangesAsync();
+
+            return Ok();
+
 
         }
 
