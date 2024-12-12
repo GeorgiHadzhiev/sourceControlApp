@@ -2,7 +2,7 @@ const baseUrl = 'https://localhost:7035/Repo'
 
 const token = getToken();
 
-async function create(code, name, description, visibility, contributors) {
+async function create(code, repoName, description, visibility, contributors) {
 
     let res = await fetch(`${baseUrl}/Create`, {
         method: 'POST',
@@ -10,7 +10,7 @@ async function create(code, name, description, visibility, contributors) {
             'content-type': 'application/json',
             'X-Authorization': token,
         },
-        body: JSON.stringify({ code, name, description, visibility, contributors })
+        body: JSON.stringify({ code, repoName, description, visibility, contributors })
     })
 
     let jsonResult = await res.json();
