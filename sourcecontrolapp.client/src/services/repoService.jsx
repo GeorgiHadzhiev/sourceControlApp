@@ -51,3 +51,11 @@ function getToken() {
     }
 
 }
+
+const repoService = {
+
+    create,
+
+}
+
+export default repoService;
