@@ -1,7 +1,7 @@
 const baseUrl = 'https://localhost:7035/User'
 async function login(email, password) {
 
-    let res = await fetch(`${baseUrl}/login`, {
+    let res = await fetch(`${baseUrl}/Login`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -27,7 +27,7 @@ async function login(email, password) {
 
 async function register(firstName, lastName, email, password) {
 
-    let res = await fetch(`${baseUrl}/register`, {
+    let res = await fetch(`${baseUrl}/Register`, {
 
         method: 'POST',
         headers: {

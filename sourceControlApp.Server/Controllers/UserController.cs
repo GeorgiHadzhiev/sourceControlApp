@@ -79,7 +79,7 @@ namespace sourceControlApp.Server.Controllers
             }
 
         }
-        [Route("login")]
+        [Route("Login")]
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] UserLoginModel user)
         {
@@ -113,7 +113,7 @@ namespace sourceControlApp.Server.Controllers
             }
 
         }
-        [Route("logout")]
+        [Route("Rogout")]
         [HttpGet]
         public IActionResult Logout()
         {
