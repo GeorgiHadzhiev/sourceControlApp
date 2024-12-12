@@ -20,7 +20,7 @@ namespace sourceControlApp.Server.Data
         public string RepoName { get; set; } = string.Empty;
 
         [MaxLength(RepoDescriptionMax)]
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; }
 
         [Required]
         [MaxLength(RepoVisibilityMax)]

@@ -25,7 +25,7 @@ namespace sourceControlApp.Server.Data
         [MaxLength(PasswordLenghtMaxDb)]
         public string Password { get; set; } = string.Empty;
 
-        public IEnumerable<Repository> Repositories { get; set; } = new List<Repository>();
+        public IList<Repository> Repositories { get; set; } = new List<Repository>();
 
     }
 }
