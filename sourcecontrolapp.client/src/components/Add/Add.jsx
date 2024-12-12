@@ -30,8 +30,13 @@ function Add() {
     function onSubmitHanlder(e) {
 
         e.preventDefault()
+        const formData = new FormData(e.currentTarget);
 
-        console.log("Hey, this works!")
+        const code = formData.get('code');
+        const name = formData.get('repoName');
+        const description = formData.get('description');
+        const visibility = formData.get('visibility');
+        const contributors = formData.get('contributors');
 
     }
 
@@ -45,7 +50,7 @@ function Add() {
 
     return (
         <Form className={`${classes.addForm}`} onSubmit={onSubmitHanlder} method="POST">
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1" name="code">
                 <Form.Label>Enter Code Here</Form.Label>
                 <Form.Control as="textarea" rows={3} />
             </Form.Group>
@@ -55,19 +60,20 @@ function Add() {
                     placeholder="Repository Name"
                     aria-label="Repository Name"
                     aria-describedby="basic-addon1"
+                    name="repoName"
                 />
             </InputGroup>
 
             <InputGroup>
                 <InputGroup.Text>Description</InputGroup.Text>
-                <Form.Control as="textarea" aria-label="With textarea" />
+                <Form.Control as="textarea" aria-label="With textarea" name="description" />
             </InputGroup>
 
             <br/>
 
             <div>
                 {['radio'].map((type) => (
-                    <div key={`default-${type}`} className="mb-3">
+                    <div key={`default-${type}`} className="mb-3" name="visibility">
                         <Form.Check                            
                             label="Public"
                             name="group1"
@@ -95,6 +101,7 @@ function Add() {
                     placeholder="Contributors Emails"
                     aria-label="Contributors Emails"
                     aria-describedby="basic-addon1"
+                    name="contributors"
                 />
             </InputGroup>
 
