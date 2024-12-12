@@ -1,6 +1,4 @@
-﻿using sourceControlApp.Server.Data;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using static sourceControlApp.Server.Data.Constants;
 
 namespace sourceControlApp.Server.Models
