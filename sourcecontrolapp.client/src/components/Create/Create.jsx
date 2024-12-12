@@ -66,9 +66,9 @@ function Add() {
 
     return (
         <Form className={`${classes.addForm}`} onSubmit={onSubmitHanlder} method="POST">
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1" name="code">
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Enter Code Here</Form.Label>
-                <Form.Control as="textarea" rows={3} />
+                <Form.Control as="textarea" rows={3} name="code" />
             </Form.Group>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">Name Your Repo</InputGroup.Text>
