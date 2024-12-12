@@ -44,7 +44,7 @@ function Add() {
             .then(res => {
 
                 console.log(res)
-                navigate('/home') 
+                navigate('/MyProfile') 
 
             })
 
