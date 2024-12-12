@@ -17,7 +17,7 @@ function MyProfile() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/Dashboard">Dashboard</Nav.Link>
-                        <Nav.Link href="/Add">Create Repository</Nav.Link>
+                        <Nav.Link href="/Create">Create Repository</Nav.Link>
                         <Nav.Link href="/Logout">Logout</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
