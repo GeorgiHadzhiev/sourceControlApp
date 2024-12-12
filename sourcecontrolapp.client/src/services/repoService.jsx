@@ -2,9 +2,9 @@ const baseUrl = 'https://localhost:7035/Repo'
 
 const token = getToken();
 
-async function add(code, name, description, visibility, contributors) {
+async function create(code, name, description, visibility, contributors) {
 
-    let res = await fetch(`${baseUrl}/add`, {
+    let res = await fetch(`${baseUrl}/create`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
