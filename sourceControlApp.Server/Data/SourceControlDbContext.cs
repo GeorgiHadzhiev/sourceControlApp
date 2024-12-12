@@ -11,6 +11,7 @@ namespace sourceControlApp.Server.Data
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Repository> Repositories { get; set; }
 
     }
 }
