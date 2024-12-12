@@ -4,7 +4,7 @@ const token = getToken();
 
 async function create(code, name, description, visibility, contributors) {
 
-    let res = await fetch(`${baseUrl}/create`, {
+    let res = await fetch(`${baseUrl}/Create`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
