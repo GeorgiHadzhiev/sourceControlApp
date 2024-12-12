@@ -1,6 +1,8 @@
 const baseUrl = 'https://localhost:7035/Repo'
 
-async function add(code, name, description, visibility, contributors, token) {
+const token = getToken();
+
+async function add(code, name, description, visibility, contributors) {
 
     let res = await fetch(`${baseUrl}/add`, {
         method: 'POST',
@@ -21,6 +23,30 @@ async function add(code, name, description, visibility, contributors, token) {
     else {
 
         throw jsonResult.message;
+
+    }
+
+}
+function getToken() {
+
+    try {
+
+        let user = localStorage.getItem('user');
+
+        if (!user) {
+
+            const errorMEssage = { message: 'You must be logged in for this action!' }
+            throw errorMEssage;
+
+        }
+        let userData = JSON.parse(user)
+
+        return userData.accessToken;
+
+    }
+    catch (err) {
+
+        console.log(err)
 
     }
 
