@@ -47,6 +47,11 @@ function Add() {
                 navigate('/MyProfile') 
 
             })
+            .catch(err => {
+
+                console.log(err)
+
+            })
 
 
     }
