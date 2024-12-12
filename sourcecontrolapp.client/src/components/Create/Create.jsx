@@ -1,14 +1,16 @@
 import ContributorsList from './ContributorsList/ContributorsList.jsx'
 import ListGroup from 'react-bootstrap/ListGroup'
-import { useState,useEffect,useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { useNavigate } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
 import classes from './Add.module.css'
+import repoService from '../../services/repoService.jsx'
 
 function Add() {
 
-
+    const navigate = useNavigate()
     let [contributors, setContrib] = useState([])
     const [remove, setRemove] = useState(false)
     const [contributorToRemove, setContributorToRemove] = useState("")
@@ -37,6 +39,15 @@ function Add() {
         const description = formData.get('description');
         const visibility = formData.get('visibility');
         const contributors = formData.get('contributors');
+
+        repoService.create(code, name, description, visibility, contributors)
+            .then(res => {
+
+                console.log(res)
+                navigate('/home') 
+
+            })
+
 
     }
 
