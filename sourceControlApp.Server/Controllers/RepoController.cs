@@ -16,7 +16,7 @@ namespace sourceControlApp.Server.Controllers
             logger = _logger;
         }
 
-        [Route("create")]
+        [Route("Create")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] RepoCreateModel model)
         {
