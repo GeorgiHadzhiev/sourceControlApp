@@ -42,7 +42,7 @@ function Add() {
         const visibility = formData.get('visibility');
         const contributors = formData.get('contributors');
 
-        repoService.create(code, repoName, description, visibility, contributors, user._id)
+        repoService.create(code, repoName, description, visibility, contributors, user.Id)
             .then(res => {
 
                 console.log(res)
