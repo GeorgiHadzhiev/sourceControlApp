@@ -32,6 +32,7 @@ namespace sourceControlApp.Server.Controllers
                 Description = model.Description,
                 Visibility = model.Visibility,
                 Contributors = model.Contributors,
+                UserId = model.UserId,
 
             };
 

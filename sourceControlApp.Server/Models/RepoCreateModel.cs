@@ -31,5 +31,8 @@ namespace sourceControlApp.Server.Models
 
         public IList<string> Contributors = new List<string>();
 
+        [Required]
+        public Guid UserId { get; set; }
+
     }
 }
