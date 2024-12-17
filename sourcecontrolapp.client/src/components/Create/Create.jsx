@@ -1,7 +1,8 @@
 import ContributorsList from './ContributorsList/ContributorsList.jsx'
 import ListGroup from 'react-bootstrap/ListGroup'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from '../../contexts/AuthContext.jsx'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -11,6 +12,7 @@ import repoService from '../../services/repoService.jsx'
 function Add() {
 
     const navigate = useNavigate()
+    const { user } = useContext(AuthContext)
     let [contributors, setContrib] = useState([])
     const [remove, setRemove] = useState(false)
     const [contributorToRemove, setContributorToRemove] = useState("")
@@ -40,7 +42,7 @@ function Add() {
         const visibility = formData.get('visibility');
         const contributors = formData.get('contributors');
 
-        repoService.create(code, repoName, description, visibility, contributors)
+        repoService.create(code, repoName, description, visibility, contributors, user._id)
             .then(res => {
 
                 console.log(res)
