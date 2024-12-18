@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import classes from './MyProfile.module.css'
 import { AuthContext } from '../../contexts/AuthContext.jsx'
+import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
 import { useContext } from 'react'
 
 function MyProfile() {
@@ -26,4 +27,5 @@ function MyProfile() {
     );
 }
 
-export default MyProfile;
+// eslint-disable-next-line react-refresh/only-export-components
+export default routeGuardIfLoggedIn(MyProfile);
