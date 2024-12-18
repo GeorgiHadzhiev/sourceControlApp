@@ -4,40 +4,6 @@ import { Navigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext.jsx'
 
 
-export const routeGuardIfNotUser = (Component) => {
-
-    const WrapperComponent = (props) => {
-
-        const { user } = useContext(AuthContext);
-
-
-        return user._id
-            ? <Component {...props} />
-            : <Navigate to="/" />
-
-    }
-
-    return WrapperComponent;
-
-};
-
-export const routeGuardIfUser = (Component) => {
-
-    const WrapperComponent = (props) => {
-
-        const { user } = useContext(AuthContext);
-
-
-        return !user._id
-            ? <Component {...props} />
-            : <Navigate to="/" />
-
-    }
-
-    return WrapperComponent;
-
-};
-
 export const routeGuardIfNotLoggedIn = (Component) => {
 
     const WrapperComponent = (props) => {

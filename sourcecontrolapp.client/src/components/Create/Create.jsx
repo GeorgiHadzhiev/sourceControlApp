@@ -1,8 +1,10 @@
+/* eslint-disable react-refresh/only-export-components */
 import ContributorsList from './ContributorsList/ContributorsList.jsx'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { useState, useEffect, useRef, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../../contexts/AuthContext.jsx'
+import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
@@ -121,4 +123,4 @@ function Add() {
     )
 }
 
-export default Add
+export default routeGuardIfLoggedIn(Add)

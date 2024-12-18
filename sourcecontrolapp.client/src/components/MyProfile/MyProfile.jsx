@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
@@ -27,5 +28,4 @@ function MyProfile() {
     );
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export default routeGuardIfLoggedIn(MyProfile);
