@@ -38,6 +38,21 @@ export const routeGuardIfUser = (Component) => {
 
 };
 
+export const routeGuardIfNotLoggedIn = (Component) => {
+
+    const WrapperComponent = (props) => {
+
+        const { user } = useContext(AuthContext);
+
+        return !user.Id
+            ? <Component {...props} />
+            : <Navigate to="/MyProfile" />
+
+    }
+
+    return WrapperComponent;
+
+}
 
 export const routeGuardOwner = (Component) => {
 

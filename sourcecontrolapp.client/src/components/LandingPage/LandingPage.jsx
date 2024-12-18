@@ -1,5 +1,7 @@
+/* eslint-disable react-refresh/only-export-components */
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import { routeGuardIfNotLoggedIn } from '../../HOCs/routeGuards.jsx' 
 import classes from './LandingPage.module.css';
 
 function LandingPage() {
@@ -24,4 +26,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default routeGuardIfNotLoggedIn(LandingPage);
