@@ -41,32 +41,7 @@ namespace sourceControlApp.Server.Controllers
 
                 if (model.Contributors.Count > 0)
                 {
-
-                    foreach (var contributorEmail in model.Contributors)
-                    {
-
-                        var contributor = await data.Users
-                        .Where(u => u.Email == contributorEmail)
-                        .Select(c => new
-                        {
-
-                            c.Id
-
-                        })
-                        .AsNoTracking()
-                        .FirstOrDefaultAsync() ?? throw new Exception();
-
-
-                        repo.RepositoryContributors.Add(new RepositoryContributors()
-                        {
-
-                            UserId = contributor.Id,
-                            RepositoryId = repo.Id,
-
-                        });
-
-                    }
-
+                    await AddContributors(model, repo);
                 }
 
                 await data.Repositories.AddAsync(repo);
@@ -84,5 +59,32 @@ namespace sourceControlApp.Server.Controllers
             
         }
 
+        private async Task AddContributors(RepoCreateModel model, Repository repo)
+        {
+            foreach (var contributorEmail in model.Contributors)
+            {
+
+                var contributor = await data.Users
+                .Where(u => u.Email == contributorEmail)
+                .Select(c => new
+                {
+
+                    c.Id
+
+                })
+                .AsNoTracking()
+                .FirstOrDefaultAsync() ?? throw new Exception();
+
+
+                repo.RepositoryContributors.Add(new RepositoryContributors()
+                {
+
+                    UserId = contributor.Id,
+                    RepositoryId = repo.Id,
+
+                });
+
+            }
+        }
     }
 }
