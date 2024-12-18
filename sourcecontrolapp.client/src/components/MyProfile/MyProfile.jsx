@@ -14,7 +14,7 @@ function MyProfile() {
     return (
         <Navbar expand="lg" className={`${classes.navbar}`}>
             <Container>
-                <Navbar.Brand href="#home">{user.FirstName} {user.LastName}</Navbar.Brand>
+                <Navbar.Brand href="/MyProfile">{user.FirstName} {user.LastName}</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

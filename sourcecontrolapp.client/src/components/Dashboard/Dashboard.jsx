@@ -1,6 +1,11 @@
+import MyProfile from '../../components/MyProfile/MyProfile.jsx'
+
 function Dashboard() {
-  return (
-    <p>Hello world!</p>
+    return (
+        <>
+            <MyProfile/>
+            <p>Hello world!</p>
+        </>
   );
 }
 
