@@ -40,7 +40,6 @@ function Add() {
         const repoName = formData.get('repoName');
         const description = formData.get('description');
         const visibility = formData.get('visibility');
-        const contributors = formData.get('contributors');
 
         repoService.create(code, repoName, description, visibility, contributors, user.Id)
             .then(res => {

@@ -26,7 +26,7 @@ namespace sourceControlApp.Server.Data
         [MaxLength(RepoVisibilityMax)]
         public string Visibility { get; set; } = string.Empty;
 
-        public IList<RepositoryContributors> RepositoryContributors = new List<RepositoryContributors>();
+        public IList<RepositoryContributors> RepositoryContributors { get; set; } = new List<RepositoryContributors>();
 
         [Required]
         public Guid UserId { get; set; }

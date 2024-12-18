@@ -29,7 +29,7 @@ namespace sourceControlApp.Server.Models
             ErrorMessage = StringLenghtErrorMessage)]
         public string Visibility { get; set; } = string.Empty;
 
-        public IList<string> Contributors = new List<string>();
+        public IList<string> Contributors { get; set; } = new List<string>();
 
         [Required]
         public Guid UserId { get; set; }
