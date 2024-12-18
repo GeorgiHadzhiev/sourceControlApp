@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sourceControlApp.Server.Data;
 
@@ -11,9 +12,10 @@ using sourceControlApp.Server.Data;
 namespace sourceControlApp.Server.Migrations
 {
     [DbContext(typeof(SourceControlDbContext))]
-    partial class SourceControlDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241218004209_addCompositeTableForRepoContributours")]
+    partial class addCompositeTableForRepoContributours
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
