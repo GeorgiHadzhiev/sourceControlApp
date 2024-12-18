@@ -31,7 +31,6 @@ namespace sourceControlApp.Server.Controllers
                 RepoName = model.RepoName,
                 Description = model.Description,
                 Visibility = model.Visibility,
-                Contributors = model.Contributors,
                 UserId = model.UserId,
 
             };
