@@ -106,13 +106,12 @@ function Add() {
                     placeholder="Contributors Emails"
                     aria-label="Contributors Emails"
                     aria-describedby="basic-addon1"
-                    name="contributors"
                 />
             </InputGroup>
 
 
             <ListGroup>
-                {contributors.map(c => (<ContributorsList key={c} contributor={c} setRemove={setRemove} setContributorToRemove={setContributorToRemove} />))}
+                {contributors.map(c => (<ContributorsList key={c} contributor={c} setRemove={setRemove} setContributorToRemove={setContributorToRemove} name="contributors" />))}
             </ListGroup>
 
             <br />

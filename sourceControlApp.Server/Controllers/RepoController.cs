@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using sourceControlApp.Server.Data;
 using sourceControlApp.Server.Models;
+using System.Linq;
 
 namespace sourceControlApp.Server.Controllers
 {
@@ -24,21 +27,66 @@ namespace sourceControlApp.Server.Controllers
         public async Task<IActionResult> Create([FromBody] RepoCreateModel model)
         {
 
-            Repository repo = new Repository()
+            try
             {
 
-                Code = model.Code,
-                RepoName = model.RepoName,
-                Description = model.Description,
-                Visibility = model.Visibility,
-                UserId = model.UserId,
+                Repository repo = new Repository()
+                {
 
-            };
+                    Code = model.Code,
+                    RepoName = model.RepoName,
+                    Description = model.Description,
+                    Visibility = model.Visibility,
+                    UserId = model.UserId,
 
-            await data.Repositories.AddAsync(repo);
-            await data.SaveChangesAsync();
+                };
 
-            return Ok();
+                if (model.Contributors.Count > 0)
+                {
+
+                    foreach (var contributorEmail in model.Contributors)
+                    {
+
+                        var contributor = await data.Users
+                        .Where(u => u.Email == contributorEmail)
+                        .Select(c => new
+                        {
+
+                            c.Id
+
+                        })
+                        .AsNoTracking()
+                        .FirstOrDefaultAsync() ?? throw new Exception();
+
+
+                        repo.RepositoryContributors.Add(new RepositoryContributors()
+                        {
+
+                            UserId = contributor.Id,
+                            RepositoryId = repo.Id,
+
+                        });
+
+                    }
+
+                }
+
+                await data.Repositories.AddAsync(repo);
+                await data.SaveChangesAsync();
+
+                return Ok();
+
+            }
+            catch(Exception ex)
+            { 
+
+                return BadRequest(ex.Message);
+
+            }
+            
+            
+
+            
 
 
         }
