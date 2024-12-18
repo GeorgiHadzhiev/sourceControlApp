@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using sourceControlApp.Server.Data;
 using sourceControlApp.Server.Models;
-using System.Linq;
 
 namespace sourceControlApp.Server.Controllers
 {
