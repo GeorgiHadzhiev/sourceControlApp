@@ -1,2 +1,10 @@
-body {
+.blankFormAlert {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    -webkit-transition: opacity 0.3s ease-in-out;
+}
+.blankFormAlert.fade{
+
+    opacity: 1;
+
 }
