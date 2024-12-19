@@ -60,9 +60,13 @@ function Add() {
 
     function contributorButton() {
 
-        const contributorsArray = [...contributors, contributoursList.current.value]
-        setContrib(contributorsArray)
-        contributoursList.current.value = ""
+        const newContributor = contributoursList.current.value.trim();
+        if (newContributor) {
+
+            setContrib(prevContributors => [...prevContributors, newContributor])
+            contributoursList.current.value = ""
+
+        }
 
     }
 
