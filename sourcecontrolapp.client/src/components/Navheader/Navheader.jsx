@@ -7,7 +7,7 @@ import { AuthContext } from '../../contexts/AuthContext.jsx'
 import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
 import { useContext } from 'react'
 
-function MyProfile() {
+function Navheader() {
 
     const { user } = useContext(AuthContext);
 
@@ -28,4 +28,4 @@ function MyProfile() {
     );
 }
 
-export default routeGuardIfLoggedIn(MyProfile);
+export default routeGuardIfLoggedIn(Navheader);
