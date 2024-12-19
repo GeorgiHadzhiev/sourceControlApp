@@ -1,5 +1,5 @@
 import authService from "../../services/authService";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import { AuthContext } from "../../contexts/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
 
@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 function Login() {
 
     const navigate = useNavigate()
-    const { login } = useContext(AuthContext);
-    const [formError, setFormError] = useState({ wrongDetails: null });
+    const { login } = useContext(AuthContext)
+    const errorRef = useRef(null)
+    const [formError, setFormError] = useState({ wrongDetails: null })
 
     const onLoginHandler = (e) => {
 
@@ -57,7 +58,7 @@ function Login() {
                       <div className="address">
 
                           <form method="POST" onSubmit={onLoginHandler}>
-                              {formError.wrongDetails && <div className="alert alert-danger blankFormAlert" role="alert">{formError.wrongDetails}</div>}
+                              {formError.wrongDetails && <div ref={errorRef} className="alert alert-danger blankFormAlert" role="alert">{formError.wrongDetails}</div>}
                               <div className="row">
                              
                                   <div className="col-sm-12">
