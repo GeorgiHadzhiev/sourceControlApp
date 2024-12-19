@@ -14,19 +14,20 @@ function App() {
 
     return (
 
-        <AuthProvder>
 
+        <AuthProvder>
             <Routes>                
                 <Route path="/" element={<LandingPage />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
                 <Route path="/MyProfile" element={<MyProfile />} />
                 <Route path="/Dashboard" element={<Dashboard />} />
                 <Route path="/Create" element={<Create />} />
-                <Route path="/login" element={<Login/>} />
-                <Route path="/register" element={<Register />} />
                 <Route path="/Logout" element={<Logout />} />
             </Routes>
-
         </AuthProvder>
+
+
 
     );
     
