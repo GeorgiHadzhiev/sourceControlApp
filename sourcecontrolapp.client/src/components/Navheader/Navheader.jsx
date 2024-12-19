@@ -2,7 +2,7 @@
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import classes from './MyProfile.module.css'
+import classes from './Navheader.module.css'
 import { AuthContext } from '../../contexts/AuthContext.jsx'
 import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
 import { useContext } from 'react'
