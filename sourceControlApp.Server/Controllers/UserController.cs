@@ -88,14 +88,7 @@ namespace sourceControlApp.Server.Controllers
                 var dbUser = await data.Users
                     .Where(u => u.Email == user.Email)
                     .AsNoTracking()
-                    .FirstOrDefaultAsync();
-
-                if (dbUser == null)
-                {
-
-                    throw new Exception(WrongEmailOrPass);
-
-                }
+                    .FirstOrDefaultAsync() ?? throw new Exception(WrongEmailOrPass);
 
                 PasswordCheker(user.Password, dbUser?.Password);
 

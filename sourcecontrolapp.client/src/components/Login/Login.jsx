@@ -28,6 +28,7 @@ function Login() {
             })
             .catch(err => {
 
+                console.log(err)
                 setFormError(formErrors => ({ ...formErrors, wrongDetails: `${err}` }))
 
             })
@@ -56,9 +57,6 @@ function Login() {
                       <div className="address">
 
                           <form method="POST" onSubmit={onLoginHandler}>
-
-
-                              <div className="alert alert-danger blankFormAlert" role="alert">Please fill out all the blank spaces</div>
                               {formError.wrongDetails && <div className="alert alert-danger blankFormAlert" role="alert">{formError.wrongDetails}</div>}
                               <div className="row">
                              
