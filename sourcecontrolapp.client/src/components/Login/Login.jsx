@@ -1,8 +1,8 @@
+import './Login.css'
 import authService from "../../services/authService";
 import { useContext, useState, useRef } from "react";
 import { AuthContext } from "../../contexts/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
-import classes from './Login.module.css';
 
 /* eslint-disable react/no-unescaped-entities */
 function Login() {
