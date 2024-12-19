@@ -2,7 +2,7 @@
 import ContributorsList from './ContributorsList/ContributorsList.jsx'
 import Navheader from '../Navheader/Navheader.jsx'
 import ListGroup from 'react-bootstrap/ListGroup'
-import { useState, useRef, useContext } from 'react'
+import { useState, useRef, useContext, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../../contexts/AuthContext.jsx'
 import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
@@ -21,14 +21,19 @@ function Add() {
     const [contributorToRemove, setContributorToRemove] = useState("")
     const contributoursList = useRef()
 
-    if (remove) {
+    useEffect(() => {
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        contributors = contributors.filter(c => c !== contributorToRemove)
-        setContrib(contributors)
-        setRemove(false)
+        if (remove) {
 
-    }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            contributors = contributors.filter(c => c !== contributorToRemove)
+            setContrib(contributors)
+            setRemove(false)
+
+        }
+
+    }, [remove, contributorToRemove])
+
 
     function onSubmitHanlder(e) {
 
