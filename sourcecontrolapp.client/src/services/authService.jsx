@@ -18,7 +18,7 @@ async function login(email, password) {
     }
     else {
 
-        throw jsonResult.message;
+        throw jsonResult.Message;
 
     }
 

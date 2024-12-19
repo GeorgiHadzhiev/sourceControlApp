@@ -107,8 +107,8 @@ namespace sourceControlApp.Server.Controllers
             }
             catch (Exception ex)
             {
-
-                return BadRequest(ex.Message);
+                string errorJson = JsonConvert.SerializeObject(ex, Formatting.Indented);
+                return BadRequest(errorJson);
 
             }
 

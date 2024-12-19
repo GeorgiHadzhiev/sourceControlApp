@@ -1,5 +1,5 @@
 import authService from "../../services/authService";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +8,7 @@ function Login() {
 
     const navigate = useNavigate()
     const { login } = useContext(AuthContext);
+    const [formError, setFormError] = useState({ wrongDetails: null });
 
     const onLoginHandler = (e) => {
 
@@ -27,7 +28,7 @@ function Login() {
             })
             .catch(err => {
 
-                console.log(err)
+                setFormError(formErrors => ({ ...formErrors, wrongDetails: `${err}` }))
 
             })
 
@@ -57,7 +58,8 @@ function Login() {
                           <form method="POST" onSubmit={onLoginHandler}>
 
 
-                              <div  className="alert alert-danger blankFormAlert" role="alert">Please fill out all the blank spaces</div>
+                              <div className="alert alert-danger blankFormAlert" role="alert">Please fill out all the blank spaces</div>
+                              {formError.wrongDetails && <div className="alert alert-danger blankFormAlert" role="alert">{formError.wrongDetails}</div>}
                               <div className="row">
                              
                                   <div className="col-sm-12">
