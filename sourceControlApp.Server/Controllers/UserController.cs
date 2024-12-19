@@ -93,7 +93,7 @@ namespace sourceControlApp.Server.Controllers
                 if (dbUser == null)
                 {
 
-                    return BadRequest(WrongEmailOrPass);
+                    throw new Exception(WrongEmailOrPass);
 
                 }
 
