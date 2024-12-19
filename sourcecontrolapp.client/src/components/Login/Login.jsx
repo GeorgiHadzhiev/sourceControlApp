@@ -30,16 +30,17 @@ function Login() {
             })
             .catch(err => {
 
-                //const errorDiv = errorRef.current
+                const errorDiv = errorRef.current
+                errorDiv.classList.add('fade')
 
-                console.log(err)
                 setFormError(formErrors => ({ ...formErrors, wrongDetails: `${err}` }))
 
                 setTimeout(() => {
 
-                    setFormError(formErrors => ({ ...formErrors, wrongDetails: null }))
+                    errorDiv.classList.remove('fade')
+                    //setFormError(formErrors => ({ ...formErrors, wrongDetails: null }))
 
-                },4000)
+                },5500)
 
             })
 
