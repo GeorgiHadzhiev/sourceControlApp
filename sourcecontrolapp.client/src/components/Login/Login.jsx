@@ -2,6 +2,7 @@ import authService from "../../services/authService";
 import { useContext, useState, useRef } from "react";
 import { AuthContext } from "../../contexts/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
+import classes from './Login.module.css';
 
 /* eslint-disable react/no-unescaped-entities */
 function Login() {
@@ -29,7 +30,7 @@ function Login() {
             })
             .catch(err => {
 
-                //let errorDiv = errorRef.current
+                //const errorDiv = errorRef.current
 
                 console.log(err)
                 setFormError(formErrors => ({ ...formErrors, wrongDetails: `${err}` }))
