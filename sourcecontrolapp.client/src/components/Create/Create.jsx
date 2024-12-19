@@ -88,24 +88,25 @@ function Add() {
 
             <br/>
 
-            <div className={`${classes.visRadio}`}>
-                <input type="radio" name="visibility" value="Public"></input>
-                <label htmlFor="Public">Public</label>
+                <div className={`${classes.visRadio}`}>
+                    <input id="Public" type="radio" name="visibility" value="Public"></input>
+                    <label htmlFor="Public">Public</label>
 
-                <input type="radio" name="visibility" value="Private"></input>
-                <label htmlFor="Private">Private</label>
-            </div>
+                    <input id="Private" type="radio" name="visibility" value="Private"></input>
+                    <label htmlFor="Private">Private</label>
+                </div>
 
             <br />
 
-            <Form.Label htmlFor="inputPassword5">Add Contributors</Form.Label>
-            <InputGroup className="mb-3">
+                <Form.Label htmlFor="inputPassword5">Add Contributors</Form.Label>
+                <InputGroup className="mb-3">
                 <Button variant="success" onMouseDown={contributorButton}>+</Button>
                 <Form.Control
                     ref={contributoursList}
                     placeholder="Contributors Emails"
                     aria-label="Contributors Emails"
                     aria-describedby="basic-addon1"
+                    id="inputPassword5"
                 />
             </InputGroup>
 
