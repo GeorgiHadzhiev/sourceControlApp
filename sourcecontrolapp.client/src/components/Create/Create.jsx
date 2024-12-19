@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import ContributorsList from './ContributorsList/ContributorsList.jsx'
+import Navheader from '../Navheader/Navheader.jsx'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { useState, useEffect, useRef, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
@@ -67,6 +68,8 @@ function Add() {
     }
 
     return (
+        <>
+        <Navheader/>
         <Form className={`${classes.addForm}`} onSubmit={onSubmitHanlder} method="POST">
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Enter Code Here</Form.Label>
@@ -119,6 +122,7 @@ function Add() {
 
             <Button type="submit" variant="success">Submit</Button>
         </Form>
+        </>
 
     )
 }

@@ -1,11 +1,14 @@
 /* eslint-disable react-refresh/only-export-components */
 import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
+import Navheader from '../Navheader/Navheader.jsx'
 
 function MyProfile() {
 
-
     return (
-        <p>Hello World!</p>
+        <>
+            <Navheader/>
+            <p>Hello World!</p>
+        </>
     );
 }
 

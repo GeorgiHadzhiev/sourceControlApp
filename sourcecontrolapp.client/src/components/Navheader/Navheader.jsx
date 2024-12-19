@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import classes from './Navheader.module.css'
 import { AuthContext } from '../../contexts/AuthContext.jsx'
-import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
+//import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
 import { useContext } from 'react'
 
 function Navheader() {
@@ -28,4 +28,4 @@ function Navheader() {
     );
 }
 
-export default routeGuardIfLoggedIn(Navheader);
+export default Navheader
