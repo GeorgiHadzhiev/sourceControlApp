@@ -3,6 +3,7 @@ import {AuthProvder} from './contexts/AuthContext.jsx'
 
 
 import LandingPage from './components/LandingPage/LandingPage.jsx';
+import Navheader from './components/Navheader/Navheader.jsx';
 import MyProfile from './components/MyProfile/MyProfile.jsx'
 import Dashboard from './components/Dashboard/Dashboard.jsx'
 import Login from './components/Login/Login'
@@ -15,6 +16,8 @@ function App() {
     return (
 
         <AuthProvder>
+
+            <Navheader />
 
             <Routes>
                 <Route path="/" element={<LandingPage />} />
