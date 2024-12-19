@@ -1,6 +1,6 @@
 import './Login.css'
 import authService from "../../services/authService";
-import { useContext, useState, useRef } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
 
@@ -9,8 +9,8 @@ function Login() {
 
     const navigate = useNavigate()
     const { login } = useContext(AuthContext)
-    const errorRef = useRef(null)
     const [formError, setFormError] = useState({ wrongDetails: null })
+    const [showError, setShowError] = useState(false);
 
     const onLoginHandler = (e) => {
 
@@ -30,16 +30,10 @@ function Login() {
             })
             .catch(err => {
 
-                const errorDiv = errorRef.current
-                errorDiv.classList.add('fade')
+                setFormError({ wrongDetails: `${err}` });
+                setShowError(true)
 
-                setFormError(formErrors => ({ ...formErrors, wrongDetails: `${err}` }))
-
-                setTimeout(() => {
-
-                    errorDiv.classList.remove('fade')
-
-                },5500)
+                setTimeout(() => setShowError(false), 5000)
 
             })
 
@@ -67,7 +61,7 @@ function Login() {
                       <div className="address">
 
                           <form method="POST" onSubmit={onLoginHandler}>
-                              <div ref={errorRef} className="alert alert-danger blankFormAlert" role="alert">{formError.wrongDetails}</div>
+                              <div className={`alert alert-danger blankFormAlert ${showError ? 'fade' : ''}`} role="alert">{formError.wrongDetails}</div>
                               <div className="row">
                              
                                   <div className="col-sm-12">
