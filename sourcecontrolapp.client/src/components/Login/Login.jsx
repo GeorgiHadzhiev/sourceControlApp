@@ -29,8 +29,16 @@ function Login() {
             })
             .catch(err => {
 
+                //let errorDiv = errorRef.current
+
                 console.log(err)
                 setFormError(formErrors => ({ ...formErrors, wrongDetails: `${err}` }))
+
+                setTimeout(() => {
+
+                    setFormError(formErrors => ({ ...formErrors, wrongDetails: null }))
+
+                },4000)
 
             })
 
@@ -58,7 +66,7 @@ function Login() {
                       <div className="address">
 
                           <form method="POST" onSubmit={onLoginHandler}>
-                              {formError.wrongDetails && <div ref={errorRef} className="alert alert-danger blankFormAlert" role="alert">{formError.wrongDetails}</div>}
+                              <div ref={errorRef} className="alert alert-danger blankFormAlert" role="alert">{formError.wrongDetails}</div>
                               <div className="row">
                              
                                   <div className="col-sm-12">

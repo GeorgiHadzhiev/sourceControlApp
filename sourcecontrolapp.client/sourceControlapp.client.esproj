@@ -13,7 +13,6 @@
     <TypeScriptConfiguration Remove="src\components\Add\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\components\Login\" />
     <Folder Include="src\components\Logout\" />
     <Folder Include="src\components\Register\" />
   </ItemGroup>
