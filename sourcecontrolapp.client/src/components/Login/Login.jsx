@@ -38,7 +38,6 @@ function Login() {
                 setTimeout(() => {
 
                     errorDiv.classList.remove('fade')
-                    //setFormError(formErrors => ({ ...formErrors, wrongDetails: null }))
 
                 },5500)
 
