@@ -6,8 +6,16 @@ function MyProfile() {
 
     return (
         <>
-            <Navheader/>
-            <p>Hello World!</p>
+            <Navheader />
+
+            <div className="container">
+                <div className="layout">
+                    <div className="sidebar">
+                    </div>
+                    <div className="main">
+                    </div>
+                </div>
+            </div>
         </>
     );
 }
