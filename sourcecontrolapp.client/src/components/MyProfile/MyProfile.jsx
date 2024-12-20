@@ -1,8 +1,18 @@
 /* eslint-disable react-refresh/only-export-components */
-import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
 import Navheader from '../Navheader/Navheader.jsx'
 
+import { useEffect } from 'react'
+import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
+
 function MyProfile() {
+
+
+    useEffect(() => {
+
+
+
+    },[])
+
 
     return (
         <>
