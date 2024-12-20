@@ -1,7 +1,7 @@
 export const request = async (method, url, data, own) => {
 
     let result = null;
-    let token = getToken();
+    const token = getToken();
 
     if (own) {
 
@@ -103,12 +103,11 @@ async function responseHandler(res) {
     }
     else {
 
-        throw jsonData.message
+        throw jsonData.Message
 
     }
 
 }
-
 function getToken() {
 
     try {
