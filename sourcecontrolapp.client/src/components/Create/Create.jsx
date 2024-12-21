@@ -43,7 +43,18 @@ function Add() {
         const description = formData.get('description');
         const visibility = formData.get('visibility');
 
-        repoService.create(code, repoName, description, visibility, contributors, user.Id)
+        const albumData = {
+
+            code,
+            repoName,
+            description,
+            visibility,
+            contributors,
+            userId: user.Id
+
+        }
+
+        repoService.create(albumData)
             .then(res => {
 
                 console.log(res)
