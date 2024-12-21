@@ -1,11 +1,13 @@
 /* eslint-disable react-refresh/only-export-components */
 import Navheader from '../Navheader/Navheader.jsx'
 
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext.jsx'
 import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
 
 function MyProfile() {
 
+    const { user } = useContext(AuthContext)
 
     useEffect(() => {
 
@@ -23,15 +25,15 @@ function MyProfile() {
                 <aside className="sidebar-container">
                     <header className="sidebar">
                         <figure>
-                            <img src="profile-picture.jpg" alt="Profile picture of Georgi Hadzhiev" />
-                            <figcaption>Georgi Hadzhiev</figcaption>
+                            <img src="profile-picture.jpg" alt={`Profile picture of ${user.FirstName} ${user.LastName}`} />
+                            <figcaption>{user.FirstName} {user.LastName}</figcaption>
                         </figure>
-                        <h1>Georgi Hadzhiev</h1>
+                        <h1>{user.FirstName} {user.LastName}</h1>
                     </header>
                 </aside>
 
-                <main>
-                    <section>
+                <main className="profile-container">
+                    <section className="profile">
                         <h2>Recent Repoes</h2>
                         <div className="repositories-grid">
                             <article>
