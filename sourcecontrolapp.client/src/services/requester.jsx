@@ -4,20 +4,14 @@ export const request = async (method, url, data, own) => {
     const token = getToken();
 
     if (own) {
-
         result = fetch(url, {
-
             headers: {
 
                 'content-type': 'application/json',
                 'X-Authorization': token,
 
             },
-
-
         });
-
-
     }
     else if (method === 'GET') {
 
@@ -25,9 +19,7 @@ export const request = async (method, url, data, own) => {
 
     }
     else if (method === 'POST') {
-
         result = fetch(url, {
-
             method,
             headers: {
 
@@ -36,28 +28,20 @@ export const request = async (method, url, data, own) => {
 
             },
             body: JSON.stringify(data)
-
         })
-
     }
     else if (method === 'DELETE') {
-
         result = fetch(url, {
-
             method: 'DELETE',
             headers: {
 
                 'X-Authorization': token,
 
             },
-
         })
-
     }
     else if (method === 'PACH') {
-
         result = fetch(url, {
-
             method,
             headers: {
 
@@ -66,15 +50,10 @@ export const request = async (method, url, data, own) => {
 
             },
             body: JSON.stringify(data)
-
         })
-
     }
     else {
-
-
         result = fetch(url, {
-
             method,
             headers: {
 
@@ -83,9 +62,7 @@ export const request = async (method, url, data, own) => {
 
             },
             body: JSON.stringify(data),
-
         });
-
     }
 
     return result.then(responseHandler)
