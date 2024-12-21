@@ -1,8 +1,11 @@
+import * as request from  './requester.jsx'
 const baseUrl = 'https://localhost:7035/Repo'
+
+const create = async () => request.post(`${baseUrl}/Create`)
 
 const token = getToken();
 
-async function create(code, repoName, description, visibility, contributors, UserId) {
+async function createOld(code, repoName, description, visibility, contributors, UserId) {
 
     let res = await fetch(`${baseUrl}/Create`, {
         method: 'POST',
