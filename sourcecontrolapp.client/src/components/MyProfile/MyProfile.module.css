@@ -4,8 +4,14 @@
     align-items:center;
 }
 .sideContainer {
-    display: inline-block;
+    
+    position:relative;
+
 }
 .mainProfile {
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    width: 500px;
+    height: 400px;
 }
