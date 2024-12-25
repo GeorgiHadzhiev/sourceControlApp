@@ -34,7 +34,7 @@ function MyProfile() {
                 </aside>
 
                 <main className={`${classes.mainProfile}`}>
-                    <section className="profile">
+                    <section className={`${classes.profileItem}`}>
                         <h2>Recent Repoes</h2>
                         <div className="repositories-grid">
                             <article>
@@ -45,7 +45,7 @@ function MyProfile() {
                             </article>                     
                         </div>
                     </section>
-                    <section className="profile">
+                    <section className={`${classes.profileItem}`}>
                         <h2>Recent Repoes</h2>
                         <div className="repositories-grid">
                             <article>
