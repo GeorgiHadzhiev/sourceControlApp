@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import Navheader from '../Navheader/Navheader.jsx'
+import classes from './MyProfile.module.css'
 
 import { useEffect, useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext.jsx'
@@ -20,7 +21,7 @@ function MyProfile() {
         <>
             <Navheader />
 
-            <div className="profile-container">
+            <div className={`${classes.profileContainer}`}>
 
                 <aside className="sidebar-container">
                     <header className="sidebar">
@@ -32,7 +33,7 @@ function MyProfile() {
                     </header>
                 </aside>
 
-                <main className="profile-container">
+                <main className="main-profile">
                     <section className="profile">
                         <h2>Recent Repoes</h2>
                         <div className="repositories-grid">
