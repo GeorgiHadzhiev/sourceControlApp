@@ -1,5 +1,11 @@
-.profileContainer{
-
-
-
+.profileContainer {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.sideContainer {
+    display: inline-block;
+}
+.mainProfile {
+    display: inline-block;
 }

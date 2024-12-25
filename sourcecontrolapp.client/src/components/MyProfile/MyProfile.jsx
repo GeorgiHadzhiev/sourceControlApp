@@ -23,17 +23,17 @@ function MyProfile() {
 
             <div className={`${classes.profileContainer}`}>
 
-                <aside className="sidebar-container">
+                <aside className={`${classes.sideContainer}`}>
                     <header className="sidebar">
                         <figure>
-                            <img src="profile-picture.jpg" alt={`Profile picture of ${user.FirstName} ${user.LastName}`} />
+                            <img src="E:\Pictures\pepe\eyes.png" alt={`Profile picture of ${user.FirstName} ${user.LastName}`} />
                             <figcaption>{user.FirstName} {user.LastName}</figcaption>
                         </figure>
                         <h1>{user.FirstName} {user.LastName}</h1>
                     </header>
                 </aside>
 
-                <main className="main-profile">
+                <main className={`${classes.mainProfile}`}>
                     <section className="profile">
                         <h2>Recent Repoes</h2>
                         <div className="repositories-grid">
