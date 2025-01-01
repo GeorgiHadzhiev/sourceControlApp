@@ -26,7 +26,7 @@ function MyProfile() {
                 <aside className={`${classes.sideContainer}`}>
                     <header className="sidebar">
                         <figure>
-                            <img src="./eyes.png" alt={`Profile picture of ${user.FirstName} ${user.LastName}`} />
+                            <img className={`${classes.profilePicture}`} src="./eyes.png" alt={`Profile picture of ${user.FirstName} ${user.LastName}`} />
                             <figcaption>{user.FirstName} {user.LastName}</figcaption>
                         </figure>
                         <h1>{user.FirstName} {user.LastName}</h1>

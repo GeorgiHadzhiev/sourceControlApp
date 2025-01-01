@@ -4,9 +4,12 @@
     align-items:center;
 }
 .sideContainer {
-    
     margin-right: 100px;
-
+}
+.profilePicture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .mainProfile {
 
