@@ -29,7 +29,7 @@ function MyProfile() {
                             <img className={`${classes.profilePicture}`} src="./eyes.png" alt={`Profile picture of ${user.FirstName} ${user.LastName}`} />
                             <figcaption className={`${classes.figcaptionUsername}`}>userName</figcaption>
                         </figure>
-                        <h1>{user.FirstName} {user.LastName}</h1>
+                        <h1 className={`${classes.fullName}`}>{user.FirstName} {user.LastName}</h1>
                     </header>
                 </aside>
 
