@@ -27,7 +27,7 @@ function MyProfile() {
                     <header className="sidebar">
                         <figure>
                             <img className={`${classes.profilePicture}`} src="./eyes.png" alt={`Profile picture of ${user.FirstName} ${user.LastName}`} />
-                            <figcaption>{user.FirstName} {user.LastName}</figcaption>
+                            <figcaption className={`${classes.figcaptionUsername}`}>userName</figcaption>
                         </figure>
                         <h1>{user.FirstName} {user.LastName}</h1>
                     </header>
