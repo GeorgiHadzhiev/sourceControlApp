@@ -9,7 +9,7 @@ import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
-import classes from './Add.module.css'
+import classes from './Create.module.css'
 import repoService from '../../services/repoService.jsx'
 
 function Create() {
