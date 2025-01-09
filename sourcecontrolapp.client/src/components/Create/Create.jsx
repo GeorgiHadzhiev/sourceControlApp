@@ -12,7 +12,7 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import classes from './Add.module.css'
 import repoService from '../../services/repoService.jsx'
 
-function Add() {
+function Create() {
 
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
@@ -142,4 +142,4 @@ function Add() {
     )
 }
 
-export default routeGuardIfLoggedIn(Add)
+export default routeGuardIfLoggedIn(Create)
