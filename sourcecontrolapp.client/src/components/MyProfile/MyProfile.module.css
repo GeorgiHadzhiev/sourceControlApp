@@ -36,18 +36,17 @@
 
 
 }
-.profileItemArticle{
-
+.profileItem {
+    
+}
+.profileItemArticle {
     display: flex;
     flex-direction: column;
-
-}
-.profileItem {
-    margin: 10px;
+    padding: 16px;
     border: 1px solid black;
-    border-radius: 8%;
+    border-radius: 0.375rem;
     width: 440px;
-    height: 115.500px;
+    height: auto;
 }
 .profileItemArticleTop{
 
