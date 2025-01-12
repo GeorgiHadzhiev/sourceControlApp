@@ -36,10 +36,16 @@
 
 
 }
+.profileItemArticle{
+
+    display: flex;
+    flex-direction: column;
+
+}
 .profileItem {
     margin: 10px;
     border: 1px solid black;
-    border-radius:8%;
+    border-radius: 8%;
 }
 #visSpan {
     border: 1px solid black;

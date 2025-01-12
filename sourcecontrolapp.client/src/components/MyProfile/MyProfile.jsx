@@ -37,14 +37,14 @@ function MyProfile() {
                     <h2>Recent Repoes</h2>
                     <ol className={`${classes.itemsList}`}>
                         <li className={`${classes.profileItem}`}>
-                            <div className="">
-                                <article>
+                            <article className={`${classes.profileItemArticle}`}>
+                                <div className="profile-item-top">
                                     <h3>Album Repo</h3>
-                                    <p>For my Final ReactJS exam</p>
-                                    <p>Language: <span>JavaScript</span></p>
                                     <span id={`${classes.visSpan}`}>Public</span>
-                                </article>                     
-                            </div>
+                                </div>
+                                <p>For my Final ReactJS exam</p>
+                                <p>Language: JavaScript </p>
+                            </article>                     
                         </li>
                     </ol>
                 </main>
