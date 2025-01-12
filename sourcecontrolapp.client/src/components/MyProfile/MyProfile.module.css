@@ -47,6 +47,11 @@
     border: 1px solid black;
     border-radius: 8%;
 }
+.profileItemArticleTop{
+
+    display :flex;
+
+}
 #visSpan {
     border: 1px solid black;
     border-radius: 624.9375rem;

@@ -38,7 +38,7 @@ function MyProfile() {
                     <ol className={`${classes.itemsList}`}>
                         <li className={`${classes.profileItem}`}>
                             <article className={`${classes.profileItemArticle}`}>
-                                <div className="profile-item-top">
+                                <div className={`${classes.profileItemArticleTop}`}>
                                     <h3>Album Repo</h3>
                                     <span id={`${classes.visSpan}`}>Public</span>
                                 </div>
