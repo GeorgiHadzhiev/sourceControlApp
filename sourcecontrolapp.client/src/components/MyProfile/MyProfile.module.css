@@ -54,8 +54,13 @@
     
 
 }
+#visSpanContainer {
+    display:flex;
+    flex-grow: 1;
+    justify-content:flex-end;
+}
 #visSpan {
-    flex-grow:1;
+    
     border: 0.7px solid #736FB5;
     border-radius: 624.9375rem;
     padding-left: 0.375rem;
