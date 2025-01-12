@@ -41,3 +41,9 @@
     border: 1px solid black;
     border-radius:8%;
 }
+#visSpan {
+    border: 1px solid black;
+    border-radius: 624.9375rem;
+    padding-left: 6px;
+    padding-right: 6px;
+}

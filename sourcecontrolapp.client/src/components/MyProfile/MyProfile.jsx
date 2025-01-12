@@ -34,49 +34,16 @@ function MyProfile() {
                 </aside>
 
                 <main className={`${classes.mainProfile}`}>
+                    <h2>Recent Repoes</h2>
                     <ol className={`${classes.itemsList}`}>
                         <li className={`${classes.profileItem}`}>
-                            <h2>Recent Repoes</h2>
-                            <div className="repositories-grid">
+                            <div className="">
                                 <article>
-                                    <h3><a href="#">AlbumRepo</a></h3>
+                                    <h3>Album Repo</h3>
                                     <p>For my Final ReactJS exam</p>
                                     <p>Language: <span>JavaScript</span></p>
-                                    <span>Public</span>
+                                    <span id={`${classes.visSpan}`}>Public</span>
                                 </article>                     
-                            </div>
-                        </li>
-                        <li className={`${classes.profileItem}`}>
-                            <h2>Recent Repoes</h2>
-                            <div className="repositories-grid">
-                                <article>
-                                    <h3><a href="#">AlbumRepo</a></h3>
-                                    <p>For my Final ReactJS exam</p>
-                                    <p>Language: <span>JavaScript</span></p>
-                                    <span>Public</span>
-                                </article>
-                            </div>
-                        </li>
-                        <li className={`${classes.profileItem}`}>
-                            <h2>Recent Repoes</h2>
-                            <div className="repositories-grid">
-                                <article>
-                                    <h3><a href="#">AlbumRepo</a></h3>
-                                    <p>For my Final ReactJS exam</p>
-                                    <p>Language: <span>JavaScript</span></p>
-                                    <span>Public</span>
-                                </article>
-                            </div>
-                        </li>
-                        <li className={`${classes.profileItem}`}>
-                            <h2>Recent Repoes</h2>
-                            <div className="repositories-grid">
-                                <article>
-                                    <h3><a href="#">AlbumRepo</a></h3>
-                                    <p>For my Final ReactJS exam</p>
-                                    <p>Language: <span>JavaScript</span></p>
-                                    <span>Public</span>
-                                </article>
                             </div>
                         </li>
                     </ol>
