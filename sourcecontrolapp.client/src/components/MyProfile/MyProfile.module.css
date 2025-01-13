@@ -26,14 +26,17 @@
 .itemsList {
     list-style-type: none;
     display: flex;
-    flex-wrap: wrap;
-    align-content: space-evenly;
+    flex-direction:row;
+    justify-content: space-evenly;
     width: 758px;
     height: 400px;
 }
 .profileItem {
-    width: 440px;
-    height: auto;
+    width: 379px;
+    padding-left: 8px;
+    padding-right:8px;
+    margin-bottom:16px;
+
 }
 .profileItemArticle {
     display: flex;
