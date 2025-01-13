@@ -5,6 +5,7 @@
 }
 .sideContainer {
     margin-right: 100px;
+    margin-top:15px
 }
 .profilePicture {
     display: block;
@@ -26,10 +27,8 @@
 .itemsList {
     list-style-type: none;
     display: flex;
-    flex-direction:row;
-    justify-content: space-evenly;
+    flex-wrap:wrap;
     width: 758px;
-    height: 400px;
 }
 .profileItem {
     width:379px;
