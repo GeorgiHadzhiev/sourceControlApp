@@ -32,7 +32,8 @@
     height: 400px;
 }
 .profileItem {
-    width: 379px;
+    width:379px;
+    height:114px;
     padding-left: 8px;
     padding-right:8px;
     margin-bottom:16px;
