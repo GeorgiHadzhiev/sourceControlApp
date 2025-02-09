@@ -2,18 +2,31 @@
 import Navheader from '../Navheader/Navheader.jsx'
 import classes from './MyProfile.module.css'
 import RepoCard from './RepoCard/RepoCard.jsx'
+import repoService from '../../services/repoService.jsx'
 
-import { useEffect, useContext } from 'react'
+import { useEffect, useContext, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext.jsx'
 import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
 
 function MyProfile() {
 
     const { user } = useContext(AuthContext)
+    const { repoes, setRepoes } = useState([])
 
     useEffect(() => {
 
+        repoService.getRecent()
+            .then(res => {
 
+                setRepoes(res)
+
+            })
+            .catch(err => {
+
+                console.log("Error in the MyProfile component")
+                console.log(err)
+
+            })
 
     },[])
 
@@ -37,7 +50,7 @@ function MyProfile() {
 
                 <main className={`${classes.mainProfile}`}>
                     <ol className={`${classes.itemsList}`}>
-                        <RepoCard/>
+                        {repoes.map(repoData => <RepoCard key={repoData._id} repo={repoData} />)}
                     </ol>
                 </main>
 
