@@ -22,6 +22,7 @@ function MyProfile() {
         <>
             <Navheader />
 
+            <h2 className={`${classes.mainHeader}`}>Recent Repoes</h2>
             <div className={`${classes.profileContainer}`}>
 
                 <aside className={`${classes.sideContainer}`}>
@@ -35,7 +36,6 @@ function MyProfile() {
                 </aside>
 
                 <main className={`${classes.mainProfile}`}>
-                    <h2>Recent Repoes</h2>
                     <ol className={`${classes.itemsList}`}>
                         <RepoCard/>
                     </ol>
