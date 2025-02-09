@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using sourceControlApp.Server.Data;
 using sourceControlApp.Server.Models;
 
@@ -23,10 +24,17 @@ namespace sourceControlApp.Server.Controllers
         [Route("getRecent")]
         [HttpGet]
 
-        public IActionResult GetRecent()
+        public async Task<IActionResult> GetRecent()
         {
+            _ = new Repository[6];
+            Repository[] recentRepoData = await data.Repositories
+                .AsNoTracking()
+                .Take(6)
+                .ToArrayAsync();
 
-            return Ok();
+            string resJson = JsonConvert.SerializeObject(recentRepoData, Formatting.Indented);
+
+            return Ok(resJson);
 
         } 
 
