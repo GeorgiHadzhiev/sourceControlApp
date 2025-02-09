@@ -52,7 +52,7 @@ export const request = async (method, url, data, own) => {
             body: JSON.stringify(data)
         })
     }
-    else {
+    else if (method === 'PUT') {
         result = fetch(url, {
             method,
             headers: {
