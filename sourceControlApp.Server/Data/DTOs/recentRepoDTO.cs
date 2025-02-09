@@ -1,6 +1,6 @@
 ﻿namespace sourceControlApp.Server.Data.DTOs
 {
-    public class recentRepoDTO
+    public class RecentRepoDTO
     {
 
         public string RepoName { get; set; } = string.Empty;
