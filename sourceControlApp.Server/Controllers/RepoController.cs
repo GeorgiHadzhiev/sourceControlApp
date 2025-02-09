@@ -20,6 +20,16 @@ namespace sourceControlApp.Server.Controllers
             data = dbContext;
         }
 
+        [Route("getRecent")]
+        [HttpGet]
+
+        public IActionResult GetRecent()
+        {
+
+            return Ok();
+
+        } 
+
         [Route("Create")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] RepoCreateModel model)
