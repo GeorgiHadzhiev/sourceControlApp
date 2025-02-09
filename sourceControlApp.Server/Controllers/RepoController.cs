@@ -26,9 +26,17 @@ namespace sourceControlApp.Server.Controllers
 
         public async Task<IActionResult> GetRecent()
         {
-            _ = new Repository[6];
+
             Repository[] recentRepoData = await data.Repositories
                 .AsNoTracking()
+                .Select( r => new Repository
+                {
+
+                    RepoName = r.RepoName,
+                    Visibility = r.Visibility,
+                    Description = r.Description,
+
+                })
                 .Take(6)
                 .ToArrayAsync();
 
