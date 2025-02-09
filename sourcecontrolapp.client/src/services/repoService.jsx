@@ -6,7 +6,7 @@ const baseUrl = 'https://localhost:7035/Repo'
 // 2nd param - the given data you want to send, as an object.
 // 3rd param - a bool flag for whether or not the given user owns the data that's being requested. 
 // If any params are not relevant to the given request they can be left out. 
-const create = async (albumData) => request.post(`${baseUrl}/Create`, albumData)
+const create = async (repoData) => request.post(`${baseUrl}/Create`, repoData)
 
 
 const repoService = {

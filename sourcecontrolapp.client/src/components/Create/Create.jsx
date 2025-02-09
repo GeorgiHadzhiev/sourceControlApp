@@ -43,7 +43,7 @@ function Create() {
         const description = formData.get('description');
         const visibility = formData.get('visibility');
 
-        const albumData = {
+        const repoData = {
 
             code,
             repoName,
@@ -54,7 +54,7 @@ function Create() {
 
         }
 
-        repoService.create(albumData)
+        repoService.create(repoData)
             .then(res => {
 
                 console.log(res)
