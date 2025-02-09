@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using sourceControlApp.Server.Data;
+using sourceControlApp.Server.Data.DTOs;
 using sourceControlApp.Server.Models;
 
 namespace sourceControlApp.Server.Controllers
@@ -27,11 +28,11 @@ namespace sourceControlApp.Server.Controllers
         public async Task<IActionResult> GetRecent()
         {
 
-            Repository[] recentRepoData = await data.Repositories
+            RecentRepoDTO[] recentRepoData = await data.Repositories
                 .AsNoTracking()
-                .Select( r => new Repository
+                .Select(r => new RecentRepoDTO
                 {
-
+                    Id = r.Id,
                     RepoName = r.RepoName,
                     Visibility = r.Visibility,
                     Description = r.Description,
