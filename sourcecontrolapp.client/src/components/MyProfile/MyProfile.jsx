@@ -11,7 +11,7 @@ import { routeGuardIfLoggedIn } from '../../HOCs/routeGuards.jsx'
 function MyProfile() {
 
     const { user } = useContext(AuthContext)
-    const { repoes, setRepoes } = useState([])
+    const [repoes, setRepoes] = useState([])
 
     useEffect(() => {
 
@@ -28,7 +28,7 @@ function MyProfile() {
 
             })
 
-    },[])
+    }, [setRepoes])
 
 
     return (
@@ -50,7 +50,7 @@ function MyProfile() {
 
                 <main className={`${classes.mainProfile}`}>
                     <ol className={`${classes.itemsList}`}>
-                        {repoes.map(repoData => <RepoCard key={repoData._id} repo={repoData} />)}
+                        {repoes.map(repoData => <RepoCard key={repoData.Id} repo={repoData} />)}
                     </ol>
                 </main>
 
