@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import Navheader from '../Navheader/Navheader.jsx'
 import classes from './MyProfile.module.css'
+import RepoCard from './RepoCard/RepoCard.jsx'
 
 import { useEffect, useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext.jsx'
@@ -36,78 +37,7 @@ function MyProfile() {
                 <main className={`${classes.mainProfile}`}>
                     <h2>Recent Repoes</h2>
                     <ol className={`${classes.itemsList}`}>
-                        <li className={`${classes.profileItem}`}>
-                            <article className={`${classes.profileItemArticle}`}>
-                                <div className={`${classes.profileItemArticleTop}`}>
-                                    <h3>Album Repo</h3>
-                                    <span id={`${classes.visSpanContainer}`}>
-                                        <span id={`${classes.visSpan}`}>Public</span>
-                                    </span>
-                                </div>
-                                <p>For my Final ReactJS exam</p>
-                                <p>Language: JavaScript </p>
-                            </article> 
-                        </li>
-                        <li className={`${classes.profileItem}`}>
-                            <article className={`${classes.profileItemArticle}`}>
-                                <div className={`${classes.profileItemArticleTop}`}>
-                                    <h3>Album Repo</h3>
-                                    <span id={`${classes.visSpanContainer}`}>
-                                        <span id={`${classes.visSpan}`}>Public</span>
-                                    </span>
-                                </div>
-                                <p>For my Final ReactJS exam</p>
-                                <p>Language: JavaScript </p>
-                            </article>
-                        </li>
-                        <li className={`${classes.profileItem}`}>
-                            <article className={`${classes.profileItemArticle}`}>
-                                <div className={`${classes.profileItemArticleTop}`}>
-                                    <h3>Album Repo</h3>
-                                    <span id={`${classes.visSpanContainer}`}>
-                                        <span id={`${classes.visSpan}`}>Public</span>
-                                    </span>
-                                </div>
-                                <p>For my Final ReactJS exam</p>
-                                <p>Language: JavaScript </p>
-                            </article>
-                        </li>
-                        <li className={`${classes.profileItem}`}>
-                            <article className={`${classes.profileItemArticle}`}>
-                                <div className={`${classes.profileItemArticleTop}`}>
-                                    <h3>Album Repo</h3>
-                                    <span id={`${classes.visSpanContainer}`}>
-                                        <span id={`${classes.visSpan}`}>Public</span>
-                                    </span>
-                                </div>
-                                <p>For my Final ReactJS exam</p>
-                                <p>Language: JavaScript </p>
-                            </article>
-                        </li>
-                        <li className={`${classes.profileItem}`}>
-                            <article className={`${classes.profileItemArticle}`}>
-                                <div className={`${classes.profileItemArticleTop}`}>
-                                    <h3>Album Repo</h3>
-                                    <span id={`${classes.visSpanContainer}`}>
-                                        <span id={`${classes.visSpan}`}>Public</span>
-                                    </span>
-                                </div>
-                                <p>For my Final ReactJS exam</p>
-                                <p>Language: JavaScript </p>
-                            </article>
-                        </li>
-                        <li className={`${classes.profileItem}`}>
-                            <article className={`${classes.profileItemArticle}`}>
-                                <div className={`${classes.profileItemArticleTop}`}>
-                                    <h3>Album Repo</h3>
-                                    <span id={`${classes.visSpanContainer}`}>
-                                        <span id={`${classes.visSpan}`}>Public</span>
-                                    </span>
-                                </div>
-                                <p>For my Final ReactJS exam</p>
-                                <p>Language: JavaScript </p>
-                            </article>
-                        </li>
+                        <RepoCard/>
                     </ol>
                 </main>
 

@@ -1,6 +1,6 @@
-/* eslint-disable react-refresh/only-export-components */
-import classes from './MyProfile.module.css'
-function RepoCard() {
+import classes from '../MyProfile.module.css'
+
+export default function RepoCard() {
 
     return (
 
@@ -18,6 +18,4 @@ function RepoCard() {
         </li>
         
     )
-
 }
-export default RepoCard()
