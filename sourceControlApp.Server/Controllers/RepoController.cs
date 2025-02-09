@@ -36,7 +36,6 @@ namespace sourceControlApp.Server.Controllers
                     RepoName = r.RepoName,
                     Visibility = r.Visibility,
                     Description = r.Description,
-
                 })
                 .Take(6)
                 .ToArrayAsync();
