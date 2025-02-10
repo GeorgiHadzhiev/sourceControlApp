@@ -1,5 +1,7 @@
+/* eslint-disable react-refresh/only-export-components */
 import './Login.css'
 import authService from "../../services/authService";
+import { routeGuardIfNotLoggedIn } from '../../HOCs/routeGuards.jsx'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
@@ -87,4 +89,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default routeGuardIfNotLoggedIn(Login);
