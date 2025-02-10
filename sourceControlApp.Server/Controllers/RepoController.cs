@@ -95,12 +95,9 @@ namespace sourceControlApp.Server.Controllers
                 .Where(u => u.Email == contributorEmail)
                 .Select(c => new
                 {
-
                     c.Id
-
                 })
                 .FirstOrDefaultAsync() ?? throw new Exception();
-
 
                 repo.RepositoryContributors.Add(new RepositoryContributors()
                 {
