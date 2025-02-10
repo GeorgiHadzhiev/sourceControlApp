@@ -91,6 +91,7 @@ namespace sourceControlApp.Server.Controllers
             {
 
                 var contributor = await data.Users
+                .AsNoTracking()
                 .Where(u => u.Email == contributorEmail)
                 .Select(c => new
                 {
@@ -98,7 +99,6 @@ namespace sourceControlApp.Server.Controllers
                     c.Id
 
                 })
-                .AsNoTracking()
                 .FirstOrDefaultAsync() ?? throw new Exception();
 
 
