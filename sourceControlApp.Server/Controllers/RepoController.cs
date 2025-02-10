@@ -24,7 +24,6 @@ namespace sourceControlApp.Server.Controllers
 
         [Route("getRecent")]
         [HttpGet]
-
         public async Task<IActionResult> GetRecent()
         {
 
@@ -101,10 +100,8 @@ namespace sourceControlApp.Server.Controllers
 
                 repo.RepositoryContributors.Add(new RepositoryContributors()
                 {
-
                     UserId = contributor.Id,
                     RepositoryId = repo.Id,
-
                 });
 
             }
